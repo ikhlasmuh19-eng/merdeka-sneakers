@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merdeka Admin - Login</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              surface: "#F7F6F4",
+              "surface-container": "#FFFFFF",
+              primary: "#111827",
+              secondary: "#6B7280",
+              outline: "#D1D5DB",
+              "outline-variant": "#E5E7EB",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-surface text-slate-900">
+    <header
+      class="sticky top-0 z-20 border-b border-outline-variant bg-white/95 backdrop-blur-xl"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+      >
+        <h1 class="font-headline-md text-headline-md font-bold text-primary">
+          MERDEKA ADMIN
+        </h1>
+        <nav class="flex items-center gap-4 text-sm font-medium text-secondary">
+          <a
+            href="../index.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Kembali ke Toko</a
+          >
+          <a
+            href="../katalog.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Katalog</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-10">
+      <div class="grid gap-10 lg:grid-cols-[1.3fr_0.9fr]">
+        <section class="space-y-6">
+          <span
+            class="inline-flex rounded-full bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white"
+            >Area Admin</span
+          >
+          <div
+            class="rounded-[2rem] bg-white p-10 shadow-lg shadow-slate-200/50"
+          >
+            <h1
+              class="font-headline-lg text-headline-lg font-bold tracking-tight text-slate-900"
+            >
+              Masuk ke Halaman Admin Merdeka Sneakers
+            </h1>
+            <p class="mt-4 max-w-xl text-body-md text-slate-600">
+              Gunakan halaman ini untuk mengelola katalog produk dan memperbarui
+              konten situs. Login di bawah ini untuk mengakses dashboard admin.
+            </p>
+          </div>
+        </section>
+
+        <aside class="space-y-6">
+          <div
+            id="loginPanel"
+            class="rounded-[2rem] bg-white p-8 shadow-lg shadow-slate-200/50"
+          >
+            <h2
+              class="font-headline-sm text-headline-sm font-bold text-slate-900"
+            >
+              Login Admin
+            </h2>
+            <p class="mt-2 text-body-sm text-slate-600">
+              Masukkan username dan password untuk masuk ke dashboard.
+            </p>
+            <form id="adminLoginForm" class="mt-7 space-y-5">
+              <label class="grid gap-2 text-sm font-medium text-slate-700">
+                Username
+                <input
+                  id="adminUsername"
+                  type="text"
+                  autocomplete="username"
+                  required
+                  class="w-full rounded-3xl border border-outline px-4 py-3 text-body-md text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  placeholder="admin"
+                />
+              </label>
+              <label class="grid gap-2 text-sm font-medium text-slate-700">
+                Password
+                <input
+                  id="adminPassword"
+                  type="password"
+                  autocomplete="current-password"
+                  required
+                  class="w-full rounded-3xl border border-outline px-4 py-3 text-body-md text-slate-900 outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/10"
+                  placeholder="••••••••"
+                />
+              </label>
+              <p
+                id="loginError"
+                class="min-h-[1.5rem] text-sm font-medium text-rose-600"
+              ></p>
+              <button
+                type="submit"
+                class="inline-flex w-full items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold uppercase tracking-[0.25em] text-white transition hover:bg-slate-800"
+              >
+                Masuk
+              </button>
+            </form>
+          </div>
+
+          <div
+            id="adminDashboard"
+            class="hidden rounded-[2rem] bg-surface-container p-8 shadow-lg shadow-slate-200/50"
+          >
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h2
+                  class="font-headline-sm text-headline-sm font-bold text-slate-900"
+                >
+                  Dashboard Admin
+                </h2>
+                <p class="mt-2 text-body-sm text-slate-600">
+                  Akses cepat ke pengaturan toko, katalog, dan aktivitas
+                  pelanggan.
+                </p>
+              </div>
+              <button
+                id="logoutButton"
+                class="rounded-full border border-outline px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100"
+              >
+                Logout
+              </button>
+            </div>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <a
+                href="kelola-produk.html"
+                class="rounded-3xl border border-outline p-5 text-left transition hover:border-primary/80 hover:bg-primary/5"
+              >
+                <span class="block text-sm font-semibold text-slate-900"
+                  >Kelola Produk</span
+                >
+                <span class="mt-2 block text-sm text-slate-600"
+                  >Tambahkan atau perbarui item katalog.</span
+                >
+              </a>
+              <a
+                href="kelola-situs.html"
+                class="rounded-3xl border border-outline p-5 text-left transition hover:border-primary/80 hover:bg-primary/5"
+              >
+                <span class="block text-sm font-semibold text-slate-900"
+                  >Kelola Situs</span
+                >
+                <span class="mt-2 block text-sm text-slate-600"
+                  >Perbarui halaman, promosi, dan pengumuman.</span
+                >
+              </a>
+              <a
+                href="laporan-penjualan.html"
+                class="rounded-3xl border border-outline p-5 text-left transition hover:border-primary/80 hover:bg-primary/5"
+              >
+                <span class="block text-sm font-semibold text-slate-900"
+                  >Laporan Penjualan</span
+                >
+                <span class="mt-2 block text-sm text-slate-600"
+                  >Lihat ringkasan penjualan dan kinerja produk.</span
+                >
+              </a>
+            </div>
+            <div class="mt-8 rounded-3xl border border-outline p-6 bg-white">
+              <h3 class="font-medium text-slate-900">Aktivitas Admin</h3>
+              <ul class="mt-4 space-y-3 text-sm text-slate-600">
+                <li class="list-disc list-inside">
+                  Login berhasil pada browser ini.
+                </li>
+                <li class="list-disc list-inside">
+                  Halaman admin hanya dapat diakses setelah autentikasi.
+                </li>
+                <li class="list-disc list-inside">
+                  Kelola konten secara lokal dengan login admin ini.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <script>
+      const loginForm = document.getElementById("adminLoginForm");
+      const loginPanel = document.getElementById("loginPanel");
+      const adminDashboard = document.getElementById("adminDashboard");
+      const loginError = document.getElementById("loginError");
+      const logoutButton = document.getElementById("logoutButton");
+
+      const adminCredentials = {
+        username: "admin",
+        password: "merdeka123",
+      };
+
+      // Cek jika sudah login sebelumnya
+      if (localStorage.getItem("merdeka_admin_logged_in") === "true") {
+        loginPanel.classList.add("hidden");
+        adminDashboard.classList.remove("hidden");
+      }
+
+      loginForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        const username = document.getElementById("adminUsername").value.trim();
+        const password = document.getElementById("adminPassword").value.trim();
+
+        if (
+          username === adminCredentials.username &&
+          password === adminCredentials.password
+        ) {
+          localStorage.setItem("merdeka_admin_logged_in", "true");
+          loginPanel.classList.add("hidden");
+          adminDashboard.classList.remove("hidden");
+          loginError.textContent = "";
+        } else {
+          loginError.textContent =
+            "Username atau password salah. Silakan coba lagi.";
+        }
+      });
+
+      logoutButton.addEventListener("click", () => {
+        localStorage.removeItem("merdeka_admin_logged_in");
+        adminDashboard.classList.add("hidden");
+        loginPanel.classList.remove("hidden");
+        loginForm.reset();
+        loginError.textContent = "";
+      });
+    </script>
+  </body>
+</html>

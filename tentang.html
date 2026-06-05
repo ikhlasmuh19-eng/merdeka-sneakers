@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="id" class="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tentang - MERDEKA</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#848484",
+              "on-primary-container": "#848484",
+              "surface-container-high": "#e8e8e8",
+              "surface-bright": "#f9f9f9",
+              "on-surface": "#1a1c1c",
+              "secondary-fixed-dim": "#c8c6c6",
+              "outline-variant": "#cfc4c5",
+              "tertiary-fixed": "#e4e2e2",
+              "surface-container-highest": "#e2e2e2",
+              "on-secondary-container": "#656464",
+              "on-surface-variant": "#4c4546",
+              "surface-variant": "#e2e2e2",
+              "on-primary-fixed": "#1b1b1b",
+              "inverse-on-surface": "#f1f1f1",
+              "on-tertiary-fixed": "#1b1c1c",
+              outline: "#7e7576",
+              tertiary: "#000000",
+              surface: "#f9f9f9",
+              "surface-container": "#eeeeee",
+              secondary: "#5f5e5e",
+              "error-container": "#ffdad6",
+              primary: "#000000",
+              error: "#ba1a1a",
+              "secondary-fixed": "#e4e2e1",
+              "on-primary-fixed-variant": "#474747",
+              background: "#f9f9f9",
+              "primary-fixed": "#e2e2e2",
+              "surface-tint": "#5e5e5e",
+              "primary-container": "#1b1b1b",
+              "surface-container-low": "#f3f3f3",
+              "inverse-surface": "#2f3131",
+              "tertiary-container": "#1b1c1c",
+              "surface-dim": "#dadada",
+              "secondary-container": "#e4e2e1",
+              "tertiary-fixed-dim": "#c7c6c6",
+              "on-background": "#1a1c1c",
+              "on-primary": "#ffffff",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-secondary-fixed-variant": "#474747",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#c6c6c6",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              xs: "4px",
+              sm: "12px",
+              gutter: "24px",
+              base: "8px",
+              "margin-desktop": "64px",
+              xl: "80px",
+              md: "24px",
+              "margin-mobile": "20px",
+              lg: "48px",
+            },
+            fontFamily: {
+              "label-sm": ["Inter"],
+              "display-xl-mobile": ["Inter"],
+              "headline-lg": ["Inter"],
+              "body-lg": ["Inter"],
+              "headline-md": ["Inter"],
+              "display-xl": ["Inter"],
+              "body-md": ["Inter"],
+            },
+            fontSize: {
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-xl-mobile": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.03em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                { lineHeight: "28px", letterSpacing: "0", fontWeight: "400" },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-xl": [
+                "80px",
+                {
+                  lineHeight: "96px",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0", fontWeight: "400" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 300,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f9f9f9;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <header
+      class="fixed top-0 left-0 w-full z-50 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-margin-mobile h-16"
+    >
+      <a
+        href="javascript:history.back()"
+        class="flex items-center justify-center p-2 hover:bg-surface-container-high transition-colors rounded-full"
+      >
+        <span class="material-symbols-outlined text-primary">arrow_back</span>
+      </a>
+      <h1
+        class="font-headline-md text-[18px] tracking-tighter font-bold text-primary uppercase"
+      >
+        MERDEKA SNEAKERS
+      </h1>
+      <div class="w-10"></div>
+    </header>
+    <main class="pt-16 pb-32">
+      <section
+        class="relative w-full aspect-[4/5] overflow-hidden transition-all duration-1000 opacity-100"
+      >
+        <img
+          id="about-hero-image"
+          class="w-full h-full object-cover"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDACzr0GalGT5E8AAlldoASX_gbzEGhJXbi36fVcKrDf1LqKegHpNEoh10ZWALmO5A2xWksL9jNMurHP4A4fNjSJ39G_11CcsL9DgDitPKkBIDhAK3ClGfWDc8AJ_WATaFbkX16aKWC31N1jgxokuUCZ5wIYQ_7hB0DRqLB7GlVFSnba14JpNdvKOV7C0sWyrOA3GN0JmLk9tyK1-PMHwuK4ff8ohgUeeFIooFTXP4iuQxlak0XUQW6f4TFFYub4kF1V-OlwpXW8Bk"
+          alt="Arsitektur sneakers"
+        />
+        <div
+          class="absolute inset-0 bg-black/40 flex flex-col justify-end p-margin-mobile"
+        >
+          <h2
+            id="about-hero-title"
+            class="text-white font-display-xl-mobile text-display-xl-mobile leading-tight uppercase mb-4"
+          >
+            BEBAS BEREKSPRESI DENGAN SEPATUMU
+          </h2>
+          <div class="w-12 h-1 bg-white mb-8"></div>
+        </div>
+      </section>
+      <section
+        class="px-margin-mobile py-lg transition-all duration-1000 opacity-100"
+      >
+        <p class="font-label-sm text-label-sm text-secondary uppercase mb-2">
+          Manifesto
+        </p>
+        <h3
+          id="about-content-title"
+          class="font-headline-md text-headline-md mb-4"
+        >
+          Kurasi Tanpa Batas
+        </h3>
+        <p
+          id="about-content-desc"
+          class="font-body-md text-body-md text-on-surface-variant leading-relaxed"
+        >
+          Merdeka Sneakers adalah ruang di mana arsitektur bertemu dengan budaya
+          streetwear. Kami percaya bahwa setiap langkah adalah pernyataan
+          kebebasan. Di sini, kurasi bukan sekadar memilih produk, melainkan
+          merayakan identitas melalui siluet dan tekstur yang tak lekang oleh
+          waktu.
+        </p>
+      </section>
+      <section
+        class="px-margin-mobile py-lg border-t border-outline-variant transition-all duration-1000 opacity-100"
+      >
+        <div class="flex justify-between items-end mb-8">
+          <div>
+            <p
+              class="font-label-sm text-label-sm text-secondary uppercase mb-2"
+            >
+              Architectural
+            </p>
+            <h3 class="font-headline-md text-headline-md">THE SPACES</h3>
+          </div>
+          <p class="font-label-sm text-label-sm text-primary uppercase">
+            01 — 06
+          </p>
+        </div>
+        <div class="grid grid-cols-2 gap-xs">
+          <div class="col-span-2 group">
+            <div
+              class="relative aspect-[16/9] overflow-hidden bg-surface-container"
+            >
+              <img
+                id="space-1-img"
+                class="w-full h-full object-cover grayscale brightness-90 group-hover:scale-105 transition-transform duration-700"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPySYed5z_XmXODuslOU2lZwUbItUyC28FYL3hJGnIhMV4HwFfitcCnhN_alGhJD9phkpvnZBUPPeK39ByT4FuTknMdJlwnOdgBdvzWBOjty97bRlhhU0f-OApFuKxFqC7D0QXGq_4gYlrWrvFpx7whh-X0yqpTYcq3lYtUuHlScfm5e7o2Z1swgQFiMqFOk0GmtgoH0rXQWQA1CAlbUAlbvDJT4bQ6SDsCTUN8JcUhW8lKNWqaLUcq5q3JeChiuWPMsgILf0oaiA"
+                alt="Main Hall — Jakarta"
+              />
+              <div class="absolute bottom-4 left-4">
+                <p
+                  id="space-1-label"
+                  class="text-white font-label-sm text-label-sm uppercase"
+                >
+                  Main Hall — Jakarta
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="aspect-square bg-surface-container overflow-hidden relative"
+            >
+              <img
+                id="space-2-img"
+                class="w-full h-full object-cover grayscale"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD20Z5oARTQftju99rRzWL6Ol4aCZPC_xyDBnvqUeH7n4AZPCP7-UzrZS-PsaYfOmTme3l_DFRtMS_q28yo8koueL5iG3Mya2eEYKSSrnwiKAnt8CpG4csE00mOceCOkBmDWqoQTsjPfoZL51RgtLfPROv_icSYZW_IIc78qUWcUEUeoCA4kN2bbYnxaK21Fc4Flg6rVVjh4q__55fwnWhtE-Tg3QBTM9aNmnbPxAbwy_ytr0PK2xnYGr7NvOH8xySFeAWXf8WYxnY"
+                alt="Brutalist Facade"
+              />
+              <div class="absolute bottom-2 left-2">
+                <p
+                  id="space-2-label"
+                  class="text-white font-label-sm text-[10px] uppercase"
+                >
+                  Brutalist Facade
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="aspect-square bg-surface-container overflow-hidden relative"
+            >
+              <img
+                id="space-3-img"
+                class="w-full h-full object-cover grayscale"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfalPfrwrGPGHPmSNQKwRH_iWMVBkfbGmw5vDz2oLBBXZyGOQdpGi_11X3tUj7-O9vcPTjGa3dMH2Rc5N7mRYSknrbyH4Cw-d8nUwgi-9LUjpd0bEtT93EcI3Xg0F0_7rQNK2IRJLD8bvDjQ7MNaIf0rTjc6bTfGpGPDjS6sP6HDckNh7QtGDyOCI5Uo7F6JITpjPbePIKHUG0dp7FAO2v_fii58Byms2VZDdjsHgUEV5syzolweZS5qP4ZO-Tor1YcodNgs-jQ1U"
+                alt="Creative Studio"
+              />
+              <div class="absolute bottom-2 left-2">
+                <p
+                  id="space-3-label"
+                  class="text-white font-label-sm text-[10px] uppercase"
+                >
+                  Creative Studio
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-2">
+            <div
+              class="relative aspect-[16/9] overflow-hidden bg-surface-container"
+            >
+              <img
+                id="space-4-img"
+                class="w-full h-full object-cover grayscale"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCcgNIsI6qQEVBJEDKOSB8tJLZ2zuDcLZLPAY4Yl7L3pTXEzJUqIM_UiYdsCg3rBp70UszBJrH9IOuwxzVAr6bPVjLM0WYLBKToNxRmPUJlKdrj-39lZPy-30pmyGY1qfWnNfzn3OjRECbDe3n-pVMGiSDe_c08Xd_WkC02ZK_S1HFJeaTgqIAGisAQgwnDxvEAp7neTEva3i3UwNrVpsc-iI11AfPyuf6KRMcO3YAoGeAGTc1EvPWqH_ZpXSB9GRS80ylPLJWlmw"
+                alt="Curation Lab"
+              />
+              <div class="absolute bottom-4 left-4">
+                <p
+                  id="space-4-label"
+                  class="text-white font-label-sm text-label-sm uppercase"
+                >
+                  Curation Lab
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="aspect-square bg-surface-container overflow-hidden relative"
+            >
+              <img
+                id="space-5-img"
+                class="w-full h-full object-cover grayscale"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXKX7IFRXCwz69gNr8ACA0zBrqZL07iR4k4DdK-OuUa7eDe7XAOYSQ5X6jzFLIJKaXTocz5BPdXhoy7lx6kwzolrR4RTBwBGe11rYQaKseEIpR0y6oSJOXQgDtKsb3Bwq9nYFgrtbS4-hdkvQcTdgZ-ePMeAxu2A-xpY4tuXRp4r3riGsOGN_xJpLCWzsKBJBTe_pHlNoVqVWmyKvN68niq9aQGrYncVuwZAby3993LdhE-jHM7fr4dNY9hB_OyugZVlm5SdroSRI"
+                alt="Archive Room"
+              />
+              <div class="absolute bottom-2 left-2">
+                <p
+                  id="space-5-label"
+                  class="text-white font-label-sm text-[10px] uppercase"
+                >
+                  Archive Room
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-span-1">
+            <div
+              class="aspect-square bg-surface-container overflow-hidden relative"
+            >
+              <img
+                id="space-6-img"
+                class="w-full h-full object-cover grayscale"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBZmDgcXhj_IuhAV7I23hvEQB6U8TdbJlWpzFg5zsLYedwe5fAqGBrYixpptFqFBBgTa6VxW9IDfXzQTD_MpLDxUcPokQEHeNCkWC_dsql31WumOLk9XwOWjZpVeKapckVRgTtTQmTEusAmNJs_GBhOegPOOXavmHK_eHQ79DMaJteAOZgKRgsVDbD5t0BLRCRZVfJ2Tuf_NrpGTACkwC1rs5qim0JjNGtko5qcnEk24iN8vW8Ea2y13ZWR3CucVLmcBeomZkwv3I"
+                alt="The Vault Lounge"
+              />
+              <div class="absolute bottom-2 left-2">
+                <p
+                  id="space-6-label"
+                  class="text-white font-label-sm text-[10px] uppercase"
+                >
+                  The Vault Lounge
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="px-margin-mobile py-lg border-t border-outline-variant bg-surface-container-low transition-all duration-1000 opacity-100"
+      >
+        <p class="font-label-sm text-label-sm text-secondary uppercase mb-2">
+          Location
+        </p>
+        <h3 class="font-headline-md text-headline-md mb-8">VISIT US</h3>
+        <div class="flex flex-col gap-lg">
+          <div
+            id="map-embed-container"
+            class="w-full aspect-video bg-white border border-outline-variant relative overflow-hidden"
+          >
+            <!-- Placeholder sementara sebelum peta dimuat -->
+            <div
+              class="absolute inset-0 flex items-center justify-center text-secondary"
+            >
+              <span class="material-symbols-outlined text-[48px] animate-pulse"
+                >map</span
+              >
+              <p class="ml-2">Memuat peta...</p>
+            </div>
+          </div>
+          <div class="space-y-6">
+            <div>
+              <p
+                class="font-label-sm text-label-sm text-secondary uppercase mb-1"
+              >
+                Address
+              </p>
+              <p class="font-body-md text-body-md font-bold">
+                SENGKANG, KABUPATEN WAJO
+              </p>
+              <p class="font-body-md text-body-md">
+                Jl. Andi Magga Amirullah No. 5 Sengkang
+              </p>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <p
+                  class="font-label-sm text-label-sm text-secondary uppercase mb-1"
+                >
+                  Hours
+                </p>
+                <p class="font-body-md text-body-md">Senin — Sabtu</p>
+                <p class="font-body-md text-body-md font-bold">16:00 — 21:00</p>
+              </div>
+              <div>
+                <p
+                  class="font-label-sm text-label-sm text-secondary uppercase mb-1"
+                >
+                  Contact
+                </p>
+                <p class="font-body-md text-body-md">+62 25705500012</p>
+                <p class="font-body-md text-body-md">
+                  merdekasneakers@gmail.com
+                </p>
+              </div>
+            </div>
+            <a
+              id="location-button"
+              class="inline-flex w-full items-center justify-center bg-primary text-on-primary py-4 font-label-sm text-label-sm uppercase tracking-widest hover:bg-on-surface transition-colors cursor-pointer"
+            >
+              LIHAT LOKASI
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer
+      class="w-full py-xl px-margin-mobile flex flex-col items-center gap-base text-center bg-surface-container-lowest border-t border-outline-variant"
+    >
+      <h2
+        class="font-headline-md text-headline-md-mobile font-bold uppercase tracking-tighter text-primary"
+      >
+        MERDEKA SNEAKERS
+      </h2>
+      <div class="flex flex-col gap-4 mt-4">
+        <a
+          class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase transition-colors"
+          href="#"
+          >PRIVACY POLICY</a
+        >
+        <a
+          class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase transition-colors"
+          href="#"
+          >TERMS OF SERVICE</a
+        >
+        <a
+          class="font-label-sm text-label-sm text-secondary hover:text-primary uppercase transition-colors"
+          href="#"
+          >SHIPPING &amp; RETURNS</a
+        >
+      </div>
+      <p
+        class="mt-8 font-body-md text-[10px] text-secondary-fixed-dim uppercase tracking-widest"
+      >
+        © 2024 MERDEKA SNEAKERS. ALL RIGHTS RESERVED.
+      </p>
+    </footer>
+
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+      const SUPABASE_URL = "https://reknrtzkntcagwquoppw.supabase.co";
+      const SUPABASE_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJla25ydHprbnRjYWd3cXVvcHB3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2Mjg3MjUsImV4cCI6MjA5NTIwNDcyNX0.2xhOB-1HHODFN9XQrY8ljj17nFN7Nyn_n-LYMOZpYjc";
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      // Fungsi untuk memperbarui embed peta
+      function updateMapEmbed(address) {
+        const mapEmbedContainer = document.getElementById(
+          "map-embed-container",
+        );
+        if (!mapEmbedContainer) return;
+
+        let mapSrc = "";
+        // Untuk embed, gunakan pencarian berdasarkan teks alamat.
+        // Jika inputnya URL, kita ambil teks "Merdeka Sneakers Sengkang" sebagai fallback agar peta muncul.
+        const searchQuery = address.startsWith("http")
+          ? "Merdeka Sneakers Sengkang"
+          : address;
+        mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(searchQuery)}&output=embed&z=17`;
+
+        mapEmbedContainer.innerHTML = `<iframe src="${mapSrc}" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>`;
+      }
+
+      async function loadAboutSettings() {
+        try {
+          const { data: settings, error } = await supabase
+            .from("site_settings")
+            .select("*");
+
+          if (error) return;
+
+          settings.forEach((item) => {
+            const c = item.content;
+            if (item.id === "about") {
+              if (c.title)
+                document.getElementById("about-hero-title").textContent =
+                  c.title;
+              if (c.image)
+                document.getElementById("about-hero-image").src = c.image;
+              if (c.description)
+                document.getElementById("about-content-desc").textContent =
+                  c.description;
+            }
+            // Galeri Spaces
+            for (let i = 1; i <= 6; i++) {
+              if (item.id === `about_space_${i}`) {
+                if (c.image)
+                  document.getElementById(`space-${i}-img`).src = c.image;
+                if (c.label)
+                  document.getElementById(`space-${i}-label`).textContent =
+                    c.label;
+              }
+            }
+          });
+
+          // Muat alamat untuk tombol "Visit Us"
+          const { data: footerData } = await supabase
+            .from("site_settings")
+            .select("content")
+            .eq("id", "footer")
+            .single();
+
+          if (footerData && footerData.content && footerData.content.address) {
+            const addr = footerData.content.address;
+            const locationButton = document.getElementById("location-button");
+
+            if (locationButton) {
+              // Jika input di admin adalah URL, gunakan langsung. Jika teks, buat search URL.
+              locationButton.href = addr.startsWith("http")
+                ? addr
+                : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addr)}`;
+              locationButton.target = "_blank";
+            }
+            if (addr) {
+              updateMapEmbed(addr); // Panggil fungsi untuk menampilkan peta
+            }
+          }
+        } catch (err) {
+          console.error("Gagal memuat pengaturan tentang:", err);
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", loadAboutSettings);
+    </script>
+  </body>
+</html>

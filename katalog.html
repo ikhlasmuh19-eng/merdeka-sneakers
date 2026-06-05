@@ -1,0 +1,856 @@
+<!doctype html>
+<html class="light" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f1f1f1",
+              "surface-bright": "#f9f9f9",
+              "on-surface-variant": "#4c4546",
+              background: "#f9f9f9",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#dadada",
+              primary: "#000000",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#1b1c1c",
+              "secondary-fixed": "#e4e2e1",
+              "outline-variant": "#cfc4c5",
+              "surface-container-lowest": "#ffffff",
+              tertiary: "#000000",
+              "surface-tint": "#5e5e5e",
+              "on-primary-fixed-variant": "#474747",
+              "on-tertiary-container": "#848484",
+              "on-secondary-container": "#656464",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#e2e2e2",
+              "on-tertiary-fixed": "#1b1c1c",
+              "secondary-fixed-dim": "#c8c6c6",
+              "inverse-primary": "#c6c6c6",
+              secondary: "#5f5e5e",
+              "on-secondary-fixed-variant": "#474747",
+              "surface-container-high": "#e8e8e8",
+              "on-primary-container": "#848484",
+              "primary-fixed-dim": "#c6c6c6",
+              "inverse-surface": "#2f3131",
+              "primary-container": "#1b1b1b",
+              "on-primary-fixed": "#1b1b1b",
+              "on-error": "#ffffff",
+              "secondary-container": "#e4e2e1",
+              "on-surface": "#1a1c1c",
+              "tertiary-fixed": "#e4e2e2",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e2e2e2",
+              outline: "#7e7576",
+              surface: "#f9f9f9",
+              "tertiary-container": "#1b1c1c",
+              "on-background": "#1a1c1c",
+              "surface-container-low": "#f3f3f3",
+              error: "#ba1a1a",
+              "tertiary-fixed-dim": "#c7c6c6",
+              "surface-variant": "#e2e2e2",
+              "surface-container": "#eeeeee",
+              "on-tertiary-fixed-variant": "#464747",
+              "error-container": "#ffdad6",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-desktop": "64px",
+              lg: "48px",
+              gutter: "24px",
+              sm: "12px",
+              xs: "4px",
+              base: "8px",
+              xl: "80px",
+              "margin-mobile": "20px",
+              md: "24px",
+            },
+            fontFamily: {
+              "label-sm": ["Inter"],
+              "headline-md": ["Inter"],
+              "display-xl": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-lg": ["Inter"],
+              "body-lg": ["Inter"],
+              "display-xl-mobile": ["Inter"],
+            },
+            fontSize: {
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-xl": [
+                "80px",
+                {
+                  lineHeight: "96px",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0", fontWeight: "400" },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                { lineHeight: "28px", letterSpacing: "0", fontWeight: "400" },
+              ],
+              "display-xl-mobile": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.03em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 200,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <header
+      class="fixed top-0 w-full z-50 bg-surface h-16 flex items-center justify-between px-margin-mobile border-b border-outline-variant"
+    >
+      <div class="flex items-center gap-base">
+        <button
+          class="cursor-pointer active:opacity-70 flex items-center"
+          onclick="toggleSidebar()"
+        >
+          <span class="material-symbols-outlined text-primary">menu</span>
+        </button>
+      </div>
+      <div
+        class="font-headline-md text-headline-md font-bold tracking-tighter text-primary"
+      >
+        MERDEKA SNEAKERS
+      </div>
+      <div class="flex items-center gap-md">
+        <a href="index.html" class="font-label-sm text-label-sm text-secondary"
+          >Beranda</a
+        >
+        <div
+          id="search-bar"
+          class="hidden items-center bg-surface-container-low rounded-full px-2 py-1 border border-outline-variant"
+        >
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Cari sepatu..."
+            class="bg-transparent border-none focus:ring-0 text-sm w-24 sm:w-40 px-2 py-0"
+          />
+          <button onclick="toggleSearch()" class="flex items-center">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+        <button
+          id="search-trigger"
+          onclick="toggleSearch()"
+          class="flex items-center"
+        >
+          <span class="material-symbols-outlined text-primary cursor-pointer"
+            >search</span
+          >
+        </button>
+      </div>
+    </header>
+    <div
+      class="fixed inset-0 z-[60] transform transition-transform duration-300 -translate-x-full"
+      id="sidebar"
+    >
+      <div
+        class="absolute inset-0 bg-primary/20 backdrop-blur-sm"
+        onclick="toggleSidebar()"
+      ></div>
+      <nav
+        class="relative w-4/5 max-w-sm h-full bg-surface-container-lowest p-margin-mobile flex flex-col"
+      >
+        <div class="flex justify-between items-center mb-xl">
+          <div
+            class="font-headline-md text-headline-md font-bold tracking-tighter text-primary"
+          >
+            MERDEKA
+          </div>
+          <button onclick="toggleSidebar()" class="">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-lg">
+          <a
+            class="font-headline-lg text-headline-lg font-bold border-b border-outline-variant pb-base"
+            href="index.html"
+            >Beranda</a
+          >
+          <a
+            class="font-headline-lg text-headline-lg font-bold border-b border-outline-variant pb-base"
+            href="katalog.html"
+            >Katalog</a
+          >
+          <a
+            class="font-headline-lg text-headline-lg font-bold border-b border-outline-variant pb-base"
+            href="tentang.html"
+            >Tentang</a
+          >
+        </div>
+      </nav>
+    </div>
+    <main class="pt-16">
+      <section class="relative overflow-hidden bg-surface">
+        <div class="px-margin-mobile py-xl">
+          <div class="max-w-3xl">
+            <span
+              class="font-label-sm text-label-sm uppercase text-secondary tracking-widest"
+              >KATALOG</span
+            >
+            <h1
+              class="font-display-xl-mobile text-display-xl-mobile text-primary font-extrabold tracking-tighter mt-base mb-md"
+            >
+              Sepatu Kami
+            </h1>
+            <p class="font-body-md text-body-md text-secondary max-w-2xl">
+              Telusuri sepatu terbaru dari Merdeka Sneakers.
+            </p>
+          </div>
+        </div>
+        <div class="px-margin-mobile pb-xl">
+          <div
+            class="rounded-3xl bg-white border border-outline-variant shadow-sm overflow-hidden"
+          >
+            <!-- Toggle Button -->
+            <button
+              onclick="toggleFilter()"
+              class="w-full flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group"
+            >
+              <div class="flex items-center gap-base">
+                <span
+                  class="material-symbols-outlined text-primary group-hover:rotate-180 transition-transform duration-500"
+                  >tune</span
+                >
+                <span class="font-headline-md text-headline-md font-bold"
+                  >Filter & Pencarian</span
+                >
+              </div>
+              <span
+                id="filter-chevron"
+                class="material-symbols-outlined transition-transform duration-300"
+                >expand_more</span
+              >
+            </button>
+
+            <!-- Collapsible Content -->
+            <div
+              id="filter-content"
+              class="hidden border-t border-outline-variant p-md bg-surface-bright"
+            >
+              <div class="flex justify-between items-center mb-lg">
+                <p
+                  class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary"
+                >
+                  Sesuaikan Kriteria
+                </p>
+                <button
+                  onclick="resetFilters()"
+                  class="rounded-full border border-outline px-4 py-2 text-label-sm text-secondary hover:bg-primary hover:text-on-primary transition-all"
+                >
+                  Reset Semua
+                </button>
+              </div>
+
+              <div class="grid gap-6 lg:grid-cols-2">
+                <div>
+                  <p
+                    class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary mb-xs"
+                  >
+                    Brand
+                  </p>
+                  <select
+                    id="brand-filter"
+                    onchange="filterBrand(this.value)"
+                    class="w-full rounded-xl border border-outline p-3 bg-white text-on-surface text-body-md focus:ring-2 focus:ring-primary/10 transition-shadow"
+                    aria-label="Pilih brand"
+                  >
+                    <option>Semua Brand</option>
+                  </select>
+                </div>
+
+                <div>
+                  <p
+                    class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary mb-xs"
+                  >
+                    Kategori
+                  </p>
+                  <div class="grid grid-cols-3 gap-3">
+                    <button
+                      onclick="filterCategory(this, 'performance')"
+                      class="rounded-lg border border-outline text-secondary bg-white px-3 py-3 text-label-sm text-center hover:border-primary transition-colors"
+                    >
+                      Performance
+                    </button>
+                    <button
+                      onclick="filterCategory(this, 'lifestyle')"
+                      class="rounded-lg border border-outline text-secondary bg-white px-3 py-3 text-label-sm text-center hover:border-primary transition-colors"
+                    >
+                      Lifestyle
+                    </button>
+                    <button
+                      onclick="filterCategory(this, 'collaboration')"
+                      class="rounded-lg border border-outline text-secondary bg-white px-3 py-3 text-label-sm text-center hover:border-primary transition-colors"
+                    >
+                      Collaboration
+                    </button>
+                  </div>
+                </div>
+
+                <div class="lg:col-span-2">
+                  <p
+                    class="font-label-sm text-label-sm uppercase tracking-[0.2em] text-secondary mb-xs"
+                  >
+                    Ukuran Sepatu (EU)
+                  </p>
+                  <div
+                    class="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-3"
+                  >
+                    <button
+                      onclick="filterSize(this, '35')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      35
+                    </button>
+                    <button
+                      onclick="filterSize(this, '36')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      36
+                    </button>
+                    <button
+                      onclick="filterSize(this, '37')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      37
+                    </button>
+                    <button
+                      onclick="filterSize(this, '38')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      38
+                    </button>
+                    <button
+                      onclick="filterSize(this, '39')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      39
+                    </button>
+                    <button
+                      onclick="filterSize(this, '40')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      40
+                    </button>
+                    <button
+                      onclick="filterSize(this, '41')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      41
+                    </button>
+                    <button
+                      onclick="filterSize(this, '42')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      42
+                    </button>
+                    <button
+                      onclick="filterSize(this, '43')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      43
+                    </button>
+                    <button
+                      onclick="filterSize(this, '44')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      44
+                    </button>
+                    <button
+                      onclick="filterSize(this, '45')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      45
+                    </button>
+                    <button
+                      onclick="filterSize(this, '46')"
+                      class="size-filter-btn rounded-lg border border-outline text-secondary bg-white py-3 text-label-sm hover:border-primary transition-colors"
+                    >
+                      46
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bg-surface px-margin-mobile pb-xl">
+        <div
+          class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-lg"
+        >
+          <div>
+            <h2 class="font-headline-lg text-headline-lg font-bold">
+              Semua Produk
+            </h2>
+            <p class="font-body-md text-body-md text-secondary mt-2">
+              Pilih sneaker yang sesuai dengan gaya dan kebutuhan kamu.
+            </p>
+          </div>
+          <a
+            href="#"
+            class="font-label-sm text-label-sm border-b border-primary pb-1 text-primary"
+            >Lihat Semua Produk</a
+          >
+        </div>
+        <div id="catalog-grid" class="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          <!-- Produk akan dimuat dinamis dari localStorage -->
+        </div>
+      </section>
+    </main>
+    <footer
+      class="bg-surface border-t border-outline-variant py-xl px-margin-mobile"
+    >
+      <div class="mb-xl">
+        <div
+          class="font-headline-md text-headline-md font-bold tracking-tighter text-primary mb-lg"
+        >
+          MERDEKA SNEAKERS
+        </div>
+        <div class="grid grid-cols-2 gap-lg">
+          <div class="flex flex-col gap-base">
+            <span
+              class="font-label-sm text-label-sm font-bold uppercase mb-base"
+              >Ikuti Kami</span
+            >
+            <a class="font-body-md text-body-md text-secondary" href="#"
+              >Instagram</a
+            >
+            <a class="font-body-md text-body-md text-secondary" href="#"
+              >TikTok</a
+            >
+            <a
+              id="footer-facebook-link"
+              class="font-body-md text-body-md text-secondary"
+              href="#"
+              >Facebook</a
+            >
+          </div>
+          <div class="flex flex-col gap-base">
+            <span
+              class="font-label-sm text-label-sm font-bold uppercase mb-base"
+              >Bantuan</span
+            >
+            <a
+              id="footer-location-link"
+              class="font-body-md text-body-md text-secondary"
+              href="#"
+              >Lokasi</a
+            >
+            <a class="font-body-md text-body-md text-secondary" href="#"
+              >WhatsApp</a
+            >
+            <a class="font-body-md text-body-md text-secondary" href="#"
+              >Kontak</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="pt-lg border-t border-outline-variant flex flex-col gap-base">
+        <div class="flex gap-md">
+          <a class="font-label-sm text-label-sm text-secondary" href="#"
+            >Privacy Policy</a
+          >
+          <a class="font-label-sm text-label-sm text-secondary" href="#"
+            >Terms of Service</a
+          >
+        </div>
+        <p class="font-label-sm text-label-sm text-secondary">
+          © 2024 MERDEKA SNEAKERS. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+      const SUPABASE_URL = "https://reknrtzkntcagwquoppw.supabase.co";
+      const SUPABASE_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJla25ydHprbnRjYWd3cXVvcHB3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2Mjg3MjUsImV4cCI6MjA5NTIwNDcyNX0.2xhOB-1HHODFN9XQrY8ljj17nFN7Nyn_n-LYMOZpYjc";
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      function formatRp(value) {
+        return new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          maximumFractionDigits: 0,
+        }).format(value);
+      }
+
+      async function fetchBrands() {
+        const brandSelect = document.getElementById("brand-filter");
+        if (!brandSelect) return;
+        console.log("Memuat daftar brand untuk filter...");
+
+        const { data: brands, error } = await supabase
+          .from("brands")
+          .select("*")
+          .order("name");
+
+        if (error) {
+          console.error("Error fetching brands:", error);
+          return;
+        }
+
+        // Hapus opsi brand yang ada, kecuali opsi pertama ("Semua Brand")
+        while (brandSelect.options.length > 1) {
+          brandSelect.remove(1);
+        }
+
+        if (brands && brands.length > 0) {
+          brands.forEach((brand) => {
+            const opt = document.createElement("option");
+            opt.value = brand.name;
+            opt.textContent = brand.name;
+            brandSelect.appendChild(opt);
+          });
+          console.log(
+            "Brand berhasil dimuat:",
+            brands.map((b) => b.name),
+          );
+        } else {
+          console.log(
+            "Tidak ada brand ditemukan di database atau terjadi kesalahan.",
+          );
+          // Anda bisa menambahkan opsi default lain jika tidak ada brand
+          // brandSelect.innerHTML += '<option disabled>Tidak ada brand</option>';
+        }
+      }
+
+      // State Filter Global
+      const activeFilters = {
+        search: "",
+        brand: "Semua Brand",
+        category: "",
+        size: "",
+      };
+
+      async function renderProducts(searchOverride = undefined) {
+        const grid = document.getElementById("catalog-grid");
+        if (!grid) return;
+        grid.innerHTML =
+          "<p class='col-span-full text-center py-20 text-secondary'>Memuat produk...</p>";
+
+        if (searchOverride !== undefined) activeFilters.search = searchOverride;
+
+        try {
+          let query = supabase
+            .from("products")
+            .select("*")
+            .order("created_at", { ascending: false });
+
+          if (activeFilters.search) {
+            query = query.ilike("name", `%${activeFilters.search}%`);
+          }
+          if (activeFilters.brand !== "Semua Brand") {
+            query = query.ilike("brand", `%${activeFilters.brand}%`);
+          }
+          if (activeFilters.category) {
+            query = query.ilike("category", `%${activeFilters.category}%`);
+          }
+          if (activeFilters.size) {
+            // Gunakan filter eksplisit 'cs' (contains) dengan format JSON string
+            query = query.filter(
+              "sizes_stock",
+              "cs",
+              JSON.stringify([{ size: activeFilters.size }]),
+            );
+          }
+
+          const { data: products, error } = await query;
+          if (error) throw error;
+
+          if (!products || products.length === 0) {
+            grid.innerHTML =
+              "<p class='col-span-full text-center py-20 text-secondary'>Tidak ada produk yang ditemukan untuk kriteria ini.</p>";
+            return;
+          }
+
+          grid.innerHTML = products
+            .map(
+              (product) => `
+            <a href="detail-produk.html?id=${product.id}" class="product-item group block rounded-3xl bg-white overflow-hidden border border-outline-variant shadow-sm">
+              <div class="aspect-[4/5] overflow-hidden bg-surface-container">
+                <img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="${product.image}" alt="${product.name}" />
+              </div>
+              <div class="p-md">
+                <p class="font-label-sm text-label-sm text-secondary uppercase mb-xs">${product.brand} • ${product.category}</p>
+                <h3 class="font-body-md text-body-md font-semibold mb-3">${product.name}</h3>
+                <p class="font-label-sm text-label-sm font-bold">${formatRp(product.price)}</p>
+              </div>
+            </a>
+          `,
+            )
+            .join("");
+        } catch (error) {
+          console.error("Supabase Error Details:", error);
+          grid.innerHTML = `<p class='col-span-full text-center py-10 text-error'>
+              Gagal memuat produk (${error.message || "Cek koneksi/database"}).
+            </p>`;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const searchQuery = params.get("search") || "";
+        const categoryQuery = params.get("category") || "";
+
+        activeFilters.search = searchQuery;
+        activeFilters.category = categoryQuery;
+
+        renderProducts();
+
+        if (searchQuery) {
+          setTimeout(() => {
+            toggleSearch();
+            document.getElementById("search-input").value = searchQuery;
+          }, 100);
+        }
+
+        if (categoryQuery) {
+          // Highlight tombol kategori yang aktif di UI
+          const buttons = document.querySelectorAll(
+            '[onclick^="filterCategory"]',
+          );
+          buttons.forEach((btn) => {
+            if (btn.getAttribute("onclick").includes(`'${categoryQuery}'`)) {
+              btn.classList.replace("bg-surface", "bg-primary");
+              btn.classList.replace("text-secondary", "text-on-primary");
+            }
+          });
+        }
+
+        if (params.get("focusSearch") === "true" && !searchQuery) {
+          setTimeout(() => toggleSearch(), 100);
+        }
+
+        // Panggil fetchBrands agar filter brand terisi dari database saat halaman dimuat
+        fetchBrands();
+
+        // Muat pengaturan footer (lokasi, dll)
+        loadFooterSettings();
+      });
+
+      async function loadFooterSettings() {
+        try {
+          const { data, error } = await supabase
+            .from("site_settings")
+            .select("content")
+            .eq("id", "footer")
+            .single();
+
+          if (error || !data) return;
+          const c = data.content;
+          if (c.address) {
+            const locLink = document.getElementById("footer-location-link");
+            if (locLink) {
+              locLink.href = c.address.startsWith("http")
+                ? c.address
+                : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address)}`;
+              locLink.target = "_blank";
+            }
+          }
+        } catch (err) {
+          console.error("Gagal memuat lokasi footer:", err);
+        }
+      }
+
+      // Ekspos ke global agar input pencarian bisa memanggilnya
+      window.renderProducts = renderProducts;
+
+      // Fungsi Filter Handlers
+      window.filterBrand = (val) => {
+        activeFilters.brand = val;
+        renderProducts();
+      };
+
+      window.filterCategory = (btn, val) => {
+        const wasActive = btn.classList.contains("bg-primary");
+        document
+          .querySelectorAll('[onclick^="filterCategory"]')
+          .forEach((b) => {
+            b.classList.remove(
+              "bg-primary",
+              "text-on-primary",
+              "border-primary",
+            );
+            b.classList.add("bg-surface", "text-secondary");
+          });
+
+        if (wasActive) {
+          activeFilters.category = "";
+        } else {
+          btn.classList.replace("bg-surface", "bg-primary");
+          btn.classList.replace("text-secondary", "text-on-primary");
+          activeFilters.category = val;
+        }
+        renderProducts();
+      };
+
+      window.filterSize = (btn, val) => {
+        const wasActive = btn.classList.contains("bg-primary");
+        document.querySelectorAll(".size-filter-btn").forEach((b) => {
+          b.classList.remove("bg-primary", "text-on-primary", "border-primary");
+          b.classList.add("bg-surface", "text-secondary");
+        });
+
+        if (wasActive) {
+          activeFilters.size = "";
+        } else {
+          btn.classList.replace("bg-surface", "bg-primary");
+          btn.classList.replace("text-secondary", "text-on-primary");
+          activeFilters.size = val;
+        }
+        renderProducts();
+      };
+    </script>
+
+    <script>
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        if (sidebar.classList.contains("-translate-x-full")) {
+          sidebar.classList.remove("-translate-x-full");
+        } else {
+          sidebar.classList.add("-translate-x-full");
+        }
+      }
+
+      function toggleFilter() {
+        const filterContent = document.getElementById("filter-content");
+        const chevron = document.getElementById("filter-chevron");
+        filterContent.classList.toggle("hidden");
+        chevron.classList.toggle("rotate-180");
+      }
+
+      function toggleSearch() {
+        const searchBar = document.getElementById("search-bar");
+        const searchTrigger = document.getElementById("search-trigger");
+        const searchInput = document.getElementById("search-input");
+
+        if (searchBar.classList.contains("hidden")) {
+          searchBar.classList.remove("hidden");
+          searchBar.classList.add("flex");
+          searchTrigger.classList.add("hidden");
+          searchInput.focus();
+        } else {
+          searchBar.classList.add("hidden");
+          searchBar.classList.remove("flex");
+          searchTrigger.classList.remove("hidden");
+          searchInput.value = "";
+          if (window.renderProducts) window.renderProducts("");
+        }
+      }
+
+      function resetFilters() {
+        // Reset search
+        document.getElementById("search-input").value = "";
+        // Reset brand
+        const brandSelect = document.getElementById("brand-filter");
+        if (brandSelect) brandSelect.selectedIndex = 0;
+
+        // Reset UI buttons
+        document
+          .querySelectorAll('[onclick^="filterCategory"], .size-filter-btn')
+          .forEach((b) => {
+            b.classList.remove(
+              "bg-primary",
+              "text-on-primary",
+              "border-primary",
+            );
+            b.classList.add("bg-surface", "text-secondary");
+          });
+
+        // Reset global state & re-render
+        window.location.href = "katalog.html";
+      }
+
+      document.getElementById("search-input").addEventListener("input", (e) => {
+        if (window.renderProducts) window.renderProducts(e.target.value);
+      });
+
+      let lastScroll = 0;
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        const header = document.querySelector("header");
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          header.style.transform = "translateY(-100%)";
+        } else {
+          header.style.transform = "translateY(0)";
+        }
+        header.style.transition = "transform 0.3s ease";
+        lastScroll = currentScroll;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laporan Penjualan - Merdeka Admin</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              surface: "#F7F6F4",
+              "surface-container": "#FFFFFF",
+              primary: "#111827",
+              secondary: "#6B7280",
+              outline: "#D1D5DB",
+              "outline-variant": "#E5E7EB",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-surface text-slate-900">
+    <header
+      class="sticky top-0 z-20 border-b border-outline-variant bg-white/95 backdrop-blur-xl"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+      >
+        <a
+          href="admin.html"
+          class="font-headline-md text-headline-md font-bold text-primary"
+          >MERDEKA ADMIN</a
+        >
+        <nav class="flex items-center gap-4 text-sm font-medium text-secondary">
+          <a
+            href="admin.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Dashboard</a
+          >
+          <a
+            href="kelola-produk.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Kelola Produk</a
+          >
+          <a
+            href="kelola-situs.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Kelola Situs</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-10">
+      <div class="rounded-[2rem] bg-white p-10 shadow-lg shadow-slate-200/50">
+        <div
+          class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
+        >
+          <div>
+            <span
+              class="inline-flex rounded-full bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white"
+              >Laporan Penjualan</span
+            >
+            <h1 class="mt-6 text-3xl font-bold text-slate-900">
+              Ringkasan Penjualan & Performa Produk
+            </h1>
+            <p class="mt-3 max-w-2xl text-body-md text-slate-600">
+              Interaktifkan laporan dengan rak katalog, tombol terjual, dan
+              perhitungan pertumbuhan kategori per bulan.
+            </p>
+          </div>
+          <a
+            href="admin.html"
+            class="inline-flex items-center rounded-full border border-outline px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+            >Kembali ke Dashboard</a
+          >
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-3">
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container"
+          >
+            <h2 class="text-xl font-semibold text-slate-900">
+              Total Penjualan Bulanan
+            </h2>
+            <p class="mt-3 text-sm text-slate-600">
+              Jumlah pendapatan yang terakumulasi dari produk terjual.
+            </p>
+            <div class="mt-6 rounded-3xl bg-white p-6 shadow-sm">
+              <p
+                id="monthlySalesTotal"
+                class="text-3xl font-bold text-slate-900"
+              >
+                Rp 0
+              </p>
+              <p class="mt-2 text-sm text-slate-600">Pendapatan bulan ini</p>
+            </div>
+          </div>
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container"
+          >
+            <h2 class="text-xl font-semibold text-slate-900">
+              Pertumbuhan Bulanan
+            </h2>
+            <p class="mt-3 text-sm text-slate-600">
+              Persentase pertumbuhan penjualan dibanding bulan sebelumnya.
+            </p>
+            <div class="mt-6 rounded-3xl bg-white p-6 shadow-sm">
+              <p id="growthRate" class="text-3xl font-bold text-slate-900">
+                0%
+              </p>
+              <p class="mt-2 text-sm text-slate-600">
+                Pertumbuhan kategori bulan ini
+              </p>
+            </div>
+          </div>
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container"
+          >
+            <h2 class="text-xl font-semibold text-slate-900">Jumlah Terjual</h2>
+            <p class="mt-3 text-sm text-slate-600">
+              Total unit barang yang telah terjual bulan ini.
+            </p>
+            <div class="mt-6 rounded-3xl bg-white p-6 shadow-sm">
+              <p id="unitsSoldTotal" class="text-3xl font-bold text-slate-900">
+                0
+              </p>
+              <p class="mt-2 text-sm text-slate-600">Unit terjual</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 rounded-[2rem] border border-outline p-6 bg-white">
+          <div
+            class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between"
+          >
+            <div>
+              <h2 class="text-xl font-semibold text-slate-900">Rak Katalog</h2>
+              <p class="mt-3 text-sm text-slate-600">
+                Klik tombol <span class="font-semibold">Terjual</span> untuk
+                menambahkan unit ke penjualan dan memperbarui laporan secara
+                otomatis.
+              </p>
+            </div>
+            <button
+              id="resetSales"
+              class="rounded-full border border-outline px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+            >
+              Reset Penjualan
+            </button>
+          </div>
+
+          <div
+            class="mt-8 overflow-hidden rounded-[2rem] border border-outline bg-surface-container"
+          >
+            <table
+              class="min-w-full border-separate border-spacing-0 text-left text-sm"
+            >
+              <thead class="bg-surface">
+                <tr>
+                  <th class="px-6 py-4 font-semibold text-slate-600">Produk</th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">
+                    Kategori
+                  </th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">Harga</th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">
+                    Terjual
+                  </th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">
+                    Pendapatan
+                  </th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">Aksi</th>
+                </tr>
+              </thead>
+              <tbody
+                id="catalogTableBody"
+                class="divide-y divide-outline"
+              ></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="mt-10 rounded-[2rem] border border-outline p-6 bg-white">
+          <h2 class="text-xl font-semibold text-slate-900">
+            Pertumbuhan Penjualan Per Kategori
+          </h2>
+          <p class="mt-3 text-sm text-slate-600">
+            Pemantauan pertumbuhan kategori yang dihitung dari total penjualan
+            bulan ini dan bulan lalu.
+          </p>
+          <div
+            class="mt-6 overflow-hidden rounded-[2rem] border border-outline bg-surface-container"
+          >
+            <table
+              class="min-w-full border-separate border-spacing-0 text-left text-sm"
+            >
+              <thead class="bg-surface">
+                <tr>
+                  <th class="px-6 py-4 font-semibold text-slate-600">
+                    Kategori
+                  </th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">
+                    Bulan Lalu
+                  </th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">
+                    Bulan Ini
+                  </th>
+                  <th class="px-6 py-4 font-semibold text-slate-600">
+                    Pertumbuhan
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                id="categoryGrowthBody"
+                class="divide-y divide-outline"
+              ></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Auth guard - redirect jika belum login
+      if (!localStorage.getItem("merdeka_admin_logged_in")) {
+        window.location.href = "admin.html";
+      }
+    </script>
+    <script>
+      const products = [
+        {
+          name: "MONOLITH V.1",
+          category: "Lifestyle",
+          price: 2499000,
+          sold: 2,
+          revenue: 4998000,
+        },
+        {
+          name: "ARCH WHITE",
+          category: "Running",
+          price: 3100000,
+          sold: 1,
+          revenue: 3100000,
+        },
+        {
+          name: "OBSIDIAN HIGH",
+          category: "Basketball",
+          price: 4200000,
+          sold: 1,
+          revenue: 4200000,
+        },
+        {
+          name: "NOVA STEP",
+          category: "Training",
+          price: 1899000,
+          sold: 0,
+          revenue: 0,
+        },
+        {
+          name: "FREEDOM FLOW",
+          category: "Lifestyle",
+          price: 2699000,
+          sold: 0,
+          revenue: 0,
+        },
+      ];
+
+      const monthlyData = {
+        previous: {
+          Lifestyle: 12600000,
+          Running: 9300000,
+          Basketball: 8400000,
+          Training: 5200000,
+        },
+        current: {
+          Lifestyle: 4998000,
+          Running: 3100000,
+          Basketball: 4200000,
+          Training: 0,
+        },
+      };
+
+      const categoryOrder = ["Lifestyle", "Running", "Basketball", "Training"];
+
+      function formatRp(value) {
+        return new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          maximumFractionDigits: 0,
+        }).format(value);
+      }
+
+      function calculateTotalRevenue() {
+        return Object.values(monthlyData.current).reduce(
+          (sum, value) => sum + value,
+          0,
+        );
+      }
+
+      function calculateTotalUnits() {
+        return products.reduce((sum, product) => sum + product.sold, 0);
+      }
+
+      function calculateGrowthRate() {
+        const previousTotal = Object.values(monthlyData.previous).reduce(
+          (sum, value) => sum + value,
+          0,
+        );
+        const currentTotal = calculateTotalRevenue();
+        if (previousTotal === 0) return 0;
+        return ((currentTotal - previousTotal) / previousTotal) * 100;
+      }
+
+      function updateDashboard() {
+        document.getElementById("monthlySalesTotal").textContent = formatRp(
+          calculateTotalRevenue(),
+        );
+        document.getElementById("unitsSoldTotal").textContent =
+          calculateTotalUnits();
+        const growth = calculateGrowthRate();
+        const growthElement = document.getElementById("growthRate");
+        growthElement.textContent = `${growth >= 0 ? "+" : ""}${growth.toFixed(1)}%`;
+        growthElement.className =
+          growth >= 0
+            ? "text-3xl font-bold text-emerald-700"
+            : "text-3xl font-bold text-rose-700";
+        renderCatalogTable();
+        renderCategoryGrowth();
+      }
+
+      function renderCatalogTable() {
+        const tbody = document.getElementById("catalogTableBody");
+        tbody.innerHTML = "";
+        products.forEach((product, index) => {
+          const row = document.createElement("tr");
+          row.className = "hover:bg-surface-container";
+          row.innerHTML = `
+                    <td class="px-6 py-5 font-medium text-slate-900">${product.name}</td>
+                    <td class="px-6 py-5 text-slate-600">${product.category}</td>
+                    <td class="px-6 py-5 text-slate-900">${formatRp(product.price)}</td>
+                    <td class="px-6 py-5 text-slate-600">${product.sold} pcs</td>
+                    <td class="px-6 py-5 text-slate-900">${formatRp(product.revenue)}</td>
+                    <td class="px-6 py-5 text-slate-900">
+                        <button data-index="${index}" class="saleButton rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800">Terjual</button>
+                    </td>
+                `;
+          tbody.appendChild(row);
+        });
+        document.querySelectorAll(".saleButton").forEach((button) => {
+          button.addEventListener("click", () => {
+            const productIndex = Number(button.dataset.index);
+            recordSale(productIndex);
+          });
+        });
+      }
+
+      function renderCategoryGrowth() {
+        const tbody = document.getElementById("categoryGrowthBody");
+        tbody.innerHTML = "";
+        categoryOrder.forEach((category) => {
+          const previous = monthlyData.previous[category] || 0;
+          const current = monthlyData.current[category] || 0;
+          const growth =
+            previous === 0 ? 100 : ((current - previous) / previous) * 100;
+          const row = document.createElement("tr");
+          row.className = "hover:bg-surface-container";
+          row.innerHTML = `
+                    <td class="px-6 py-5 font-medium text-slate-900">${category}</td>
+                    <td class="px-6 py-5 text-slate-600">${formatRp(previous)}</td>
+                    <td class="px-6 py-5 text-slate-900">${formatRp(current)}</td>
+                    <td class="px-6 py-5 ${growth >= 0 ? "text-emerald-700" : "text-rose-700"}">${growth >= 0 ? "+" : ""}${growth.toFixed(1)}%</td>
+                `;
+          tbody.appendChild(row);
+        });
+      }
+
+      function recordSale(index) {
+        const product = products[index];
+        product.sold += 1;
+        product.revenue += product.price;
+        monthlyData.current[product.category] =
+          (monthlyData.current[product.category] || 0) + product.price;
+        updateDashboard();
+      }
+
+      function resetSales() {
+        products.forEach((product) => {
+          product.sold = 0;
+          product.revenue = 0;
+        });
+        monthlyData.current = {
+          Lifestyle: 0,
+          Running: 0,
+          Basketball: 0,
+          Training: 0,
+        };
+        updateDashboard();
+      }
+
+      document
+        .getElementById("resetSales")
+        .addEventListener("click", resetSales);
+      updateDashboard();
+    </script>
+  </body>
+</html>
+

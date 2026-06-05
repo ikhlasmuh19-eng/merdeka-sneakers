@@ -1,0 +1,784 @@
+<!doctype html>
+<html class="light" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-on-surface": "#f1f1f1",
+              "surface-bright": "#f9f9f9",
+              "on-surface-variant": "#4c4546",
+              background: "#f9f9f9",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#dadada",
+              primary: "#000000",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#1b1c1c",
+              "secondary-fixed": "#e4e2e1",
+              "outline-variant": "#cfc4c5",
+              "surface-container-lowest": "#ffffff",
+              tertiary: "#000000",
+              "surface-tint": "#5e5e5e",
+              "on-primary-fixed-variant": "#474747",
+              "on-tertiary-container": "#848484",
+              "on-secondary-container": "#656464",
+              "on-error-container": "#93000a",
+              "primary-fixed": "#e2e2e2",
+              "on-tertiary-fixed": "#1b1c1c",
+              "secondary-fixed-dim": "#c8c6c6",
+              "inverse-primary": "#c6c6c6",
+              secondary: "#5f5e5e",
+              "on-secondary-fixed-variant": "#474747",
+              "surface-container-high": "#e8e8e8",
+              "on-primary-container": "#848484",
+              "primary-fixed-dim": "#c6c6c6",
+              "inverse-surface": "#2f3131",
+              "primary-container": "#1b1b1b",
+              "on-primary-fixed": "#1b1b1b",
+              "on-error": "#ffffff",
+              "secondary-container": "#e4e2e1",
+              "on-surface": "#1a1c1c",
+              "tertiary-fixed": "#e4e2e2",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#e2e2e2",
+              outline: "#7e7576",
+              surface: "#f9f9f9",
+              "tertiary-container": "#1b1c1c",
+              "on-background": "#1a1c1c",
+              "surface-container-low": "#f3f3f3",
+              error: "#ba1a1a",
+              "tertiary-fixed-dim": "#c7c6c6",
+              "surface-variant": "#e2e2e2",
+              "surface-container": "#eeeeee",
+              "on-tertiary-fixed-variant": "#464747",
+              "error-container": "#ffdad6",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-desktop": "64px",
+              lg: "48px",
+              gutter: "24px",
+              sm: "12px",
+              xs: "4px",
+              base: "8px",
+              xl: "80px",
+              "margin-mobile": "20px",
+              md: "24px",
+            },
+            fontFamily: {
+              "label-sm": ["Inter"],
+              "headline-md": ["Inter"],
+              "display-xl": ["Inter"],
+              "body-md": ["Inter"],
+              "headline-lg": ["Inter"],
+              "body-lg": ["Inter"],
+              "display-xl-mobile": ["Inter"],
+            },
+            fontSize: {
+              "label-sm": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-xl": [
+                "80px",
+                {
+                  lineHeight: "96px",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-md": [
+                "16px",
+                { lineHeight: "24px", letterSpacing: "0", fontWeight: "400" },
+              ],
+              "headline-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-lg": [
+                "18px",
+                { lineHeight: "28px", letterSpacing: "0", fontWeight: "400" },
+              ],
+              "display-xl-mobile": [
+                "48px",
+                {
+                  lineHeight: "56px",
+                  letterSpacing: "-0.03em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 200,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <!-- Top Navigation Bar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface h-16 flex items-center justify-between px-margin-mobile border-b border-outline-variant"
+    >
+      <div class="flex items-center gap-base">
+        <button
+          class="cursor-pointer active:opacity-70 flex items-center"
+          onclick="toggleSidebar()"
+        >
+          <span class="material-symbols-outlined text-primary">menu</span>
+        </button>
+      </div>
+      <div
+        class="font-headline-md text-headline-md font-bold tracking-tighter text-primary"
+      >
+        MERDEKA SNEAKERS
+      </div>
+      <div class="flex items-center gap-md">
+        <div
+          id="search-bar"
+          class="hidden items-center bg-surface-container-low rounded-full px-2 py-1 border border-outline-variant"
+        >
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Cari sepatu..."
+            class="bg-transparent border-none focus:ring-0 text-sm w-24 sm:w-40 px-2 py-0"
+          />
+          <button onclick="toggleSearch()" class="flex items-center">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+        <button
+          id="search-trigger"
+          onclick="toggleSearch()"
+          class="flex items-center"
+        >
+          <span class="material-symbols-outlined text-primary cursor-pointer"
+            >search</span
+          >
+        </button>
+      </div>
+    </header>
+    <!-- Sidebar Overlay -->
+    <div
+      class="fixed inset-0 z-[60] transform transition-transform duration-300 -translate-x-full"
+      id="sidebar"
+    >
+      <div
+        class="absolute inset-0 bg-primary/20 backdrop-blur-sm"
+        onclick="toggleSidebar()"
+      ></div>
+      <nav
+        class="relative w-4/5 max-w-sm h-full bg-surface-container-lowest p-margin-mobile flex flex-col"
+      >
+        <div class="flex justify-between items-center mb-xl">
+          <div
+            class="font-headline-md text-headline-md font-bold tracking-tighter text-primary"
+          >
+            MERDEKA
+          </div>
+          <button onclick="toggleSidebar()" class="">
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div class="flex flex-col gap-lg">
+          <a
+            class="font-headline-lg text-headline-lg font-bold border-b border-outline-variant pb-base"
+            href="index.html"
+            >Beranda</a
+          >
+          <a
+            class="font-headline-lg text-headline-lg font-bold border-b border-outline-variant pb-base"
+            href="katalog.html"
+            >Katalog</a
+          >
+
+          <a
+            class="font-headline-lg text-headline-lg font-bold border-b border-outline-variant pb-base"
+            href="tentang.html"
+            >Tentang</a
+          >
+        </div>
+      </nav>
+    </div>
+    <main class="pt-16">
+      <!-- Hero Section -->
+      <section class="relative h-[85vh] w-full overflow-hidden flex items-end">
+        <div class="absolute inset-0 z-0">
+          <div id="hero-slider" class="w-full h-full relative">
+            <!-- Images will be dynamically loaded here -->
+          </div>
+          <div
+            id="hero-slider-dots"
+            class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-20"
+          >
+            <!-- Dots will be dynamically loaded here -->
+          </div>
+        </div>
+        <div
+          class="relative z-10 p-margin-mobile w-full bg-gradient-to-t from-primary/80 to-transparent"
+        >
+          <h1
+            id="hero-title"
+            class="font-display-xl-mobile text-display-xl-mobile text-on-primary font-extrabold tracking-tighter mb-md"
+          >
+            MERDEKA<br />SNEAKERS
+          </h1>
+          <p
+            id="hero-subtitle"
+            class="font-body-md text-body-md text-on-primary/80 mb-lg max-w-[80%]"
+          >
+            Presisi arsitektural dalam setiap jahitan. Koleksi eksklusif kurasi
+            artisan.
+          </p>
+          <a
+            id="hero-cta"
+            href="katalog.html"
+            class="inline-flex w-full items-center justify-center bg-surface text-primary py-md font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all active:scale-95"
+          >
+            LIHAT KATALOG
+          </a>
+        </div>
+      </section>
+      <!-- New Arrivals Section -->
+      <section class="py-xl bg-surface">
+        <div class="px-margin-mobile flex justify-between items-end mb-lg">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg font-bold">
+              RILIS TERBARU
+            </h2>
+          </div>
+          <a
+            class="font-label-sm text-label-sm border-b border-primary pb-1"
+            href="katalog.html"
+            >LIHAT SEMUA</a
+          >
+        </div>
+        <div
+          id="product-grid"
+          class="grid grid-cols-2 gap-[1px] bg-outline-variant border-y border-outline-variant"
+        >
+          <!-- Produk akan dimuat secara dinamis via JavaScript -->
+        </div>
+      </section>
+      <!-- Category Banners -->
+      <section class="flex flex-col">
+        <!-- PERFORMANCE -->
+        <div
+          id="cat-perf-container"
+          class="relative h-64 w-full border-b border-outline-variant overflow-hidden group"
+        >
+          <img
+            id="cat-perf-img"
+            class="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:scale-110 transition-transform duration-1000"
+            data-alt="A dynamic motion-blurred image of an athlete running on a modern track in a minimalist stadium. The lighting is focused on the movement of the technical sneakers. High-contrast black and white palette with sharp architectural lines of the stadium architecture in the background."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFo2y2ULLEpiY-hksIqeE448A-MWa99ybfS0Err0yX0mEm8ZunQuh-EMPPtpDlGLZa_dgZKDyskglLpJro4v4UB74zx8YBmYzBSo7rJJ7JVnxA2tHoIRNoBSxf0rnAqUzHM2opvg7fsAFTkHxZhKhVKen3KZhUr_C9CCLZeWJuj7JDGlNM3Bnu521kWNLlr9L8o2_xBdw0Hi5k-_pztBakdQGyeWCKyINfZa1qYimTlUPf5qFVjO_ukpxR-lDC08hgnMbNtAn5nJ8"
+          />
+          <div
+            class="absolute inset-0 flex flex-col justify-center items-center"
+          >
+            <h2
+              id="cat-perf-title"
+              class="font-display-xl-mobile text-headline-lg font-extrabold text-on-primary tracking-widest uppercase"
+            >
+              PERFORMANCE
+            </h2>
+            <a
+              href="katalog.html?category=performance"
+              class="font-label-sm text-label-sm text-on-primary/60 mt-base border border-on-primary/30 px-md py-1 inline-block"
+              >LIHAT SEPATU</a
+            >
+          </div>
+        </div>
+        <!-- LIFESTYLE -->
+        <div
+          id="cat-life-container"
+          class="relative h-64 w-full border-b border-outline-variant overflow-hidden group"
+        >
+          <img
+            id="cat-life-img"
+            class="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:scale-110 transition-transform duration-1000"
+            data-alt="A clean, sun-drenched minimalist living space with brutalist concrete walls and a single designer chair. A pair of luxury lifestyle sneakers sit perfectly aligned on the floor. Soft natural light creates elegant shadows. Architectural minimalism in a home setting."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWx_ZmBEQWcj1kc9K_OOfRVx40Dpy8QuXweQh_H9eCmHduUi1JXzc52ofECa7NP4AsLETsgnN0JA26i0utMYyP8ZZwYWPg-sL8ZC9YsKYSGT7XQzeQNfwKB3El4O8xDtpU0CkIORfGEkBMb0L1RIvrc0AqEUH5eP_cX44CuucyHwu-urqPlwIot9mjwJ38Y6slA6DOAnsRzP4_Jy_9aRnwr4RxxaijYVITLIfCp671MCPq11Ce6xAA4vYI4bBM7jnpjvbu7htPq1M"
+          />
+          <div
+            class="absolute inset-0 flex flex-col justify-center items-center"
+          >
+            <h2
+              id="cat-life-title"
+              class="font-display-xl-mobile text-headline-lg font-extrabold text-on-primary tracking-widest uppercase"
+            >
+              LIFESTYLE
+            </h2>
+            <a
+              href="katalog.html?category=lifestyle"
+              class="font-label-sm text-label-sm text-on-primary/60 mt-base border border-on-primary/30 px-md py-1 inline-block"
+              >LIHAT SEPATU</a
+            >
+          </div>
+        </div>
+        <!-- LIMITED VAULT -->
+        <div
+          id="cat-collab-container"
+          class="relative h-64 w-full overflow-hidden group"
+        >
+          <img
+            id="cat-collab-img"
+            class="absolute inset-0 w-full h-full object-cover grayscale brightness-[0.3] group-hover:scale-110 transition-transform duration-1000"
+            data-alt="A dark gallery space with a single spotlight illuminating a rare sneaker inside a glass display case. The mood is highly exclusive and secretive. Architectural textures of metal and glass dominate the frame. Monochrome aesthetic with deep black shadows."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUw8r_bYlboJhw6dZ14cuxBRfMucwtwXg6Ig4AlJrH2HWvxCZJCGLpF10Dk3BhxopKrM49f17v5oReH_QJHEYDSu3BGLgHmFJ5cQNYU5E__etrYstkKdz8b4w-4JuoHinVcrVFKdALSZ86A_TKbuB_vTZO147MMiJpbajhT-IkdPyuoC6WL5IusRpqQyGP78CGg_4wQqP1H24V9v4aDfUMSm1l7y6yvKUOApD8BLxHSVhFOCag300Be41ualpojKpw0iLf4Do6JYE"
+          />
+          <div
+            class="absolute inset-0 flex flex-col justify-center items-center"
+          >
+            <h2
+              id="cat-collab-title"
+              class="font-display-xl-mobile text-headline-lg font-extrabold text-on-primary tracking-widest uppercase"
+            >
+              COLLABORATION
+            </h2>
+            <a
+              href="katalog.html?category=collaboration"
+              class="font-label-sm text-label-sm text-on-primary/60 mt-base border border-on-primary/30 px-md py-1 inline-block"
+              >LIHAT SEPATU</a
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Journal Section -->
+      <section class="py-xl bg-surface px-margin-mobile">
+        <div class="mb-lg">
+          <span
+            class="font-label-sm text-label-sm uppercase text-secondary tracking-widest mb-xs block"
+            >TENTANG</span
+          >
+          <h2 class="font-headline-lg text-headline-lg font-bold">
+            MERDEKA SNEAKERS
+          </h2>
+        </div>
+        <div class="bg-surface-container border border-outline-variant">
+          <div class="aspect-video overflow-hidden">
+            <img
+              id="journal-img"
+              class="w-full h-full object-cover grayscale brightness-75"
+              data-alt="A wide-angle shot of a minimalist architectural design studio. Clean white desks, black ergonomic chairs, and large windows looking out at a city skyline. The lighting is bright and even. The composition is perfectly symmetrical, reflecting architectural precision and professional design ethos."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMNWzjcNpR1ufV4OO5TnSpS3LuC2U8OCbJG5GutpCar5s2ovco2VIwAzdKjCExaOeqfxklbozF7aAP39d_u9-eNEhI8C7FbQr7BzTlhVkoAQplwie5JPgdZF41ciX0s7qhkYnGDbTgo_iO9y0qzvFDExj_cOSUq5ZBzskYm0p_B9k_vjnn08VhQs1cNDZuh06UVX87x-uWGg2VLcf45LI9PbWR2LDDP_W5P-Yw85QCqX78b2ZIXngQbguvFE1Jwo-7SuKLnlc1JDQ"
+            />
+          </div>
+          <div class="p-lg">
+            <p class="font-label-sm text-label-sm text-secondary mb-base">
+              15 OKT 2024
+            </p>
+            <h3
+              id="journal-title"
+              class="font-headline-md text-headline-md font-bold mb-md"
+            >
+              Dibalik Layar: Presisi Arsitektural dalam Footwear
+            </h3>
+            <p
+              id="journal-subtitle"
+              class="font-body-md text-body-md text-secondary mb-lg"
+            >
+              Bagaimana struktur bangunan ikonik menginspirasi siluet terbaru
+              koleksi Monolith kami.
+            </p>
+            <a
+              class="font-label-sm text-label-sm font-bold border-b-2 border-primary pb-1"
+              href="tentang.html"
+              >BACA SELENGKAPNYA</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface border-t border-outline-variant py-xl px-margin-mobile"
+    >
+      <div class="mb-xl">
+        <div
+          class="font-headline-md text-headline-md font-bold tracking-tighter text-primary mb-lg"
+        >
+          MERDEKA SNEAKERS
+        </div>
+        <div class="grid grid-cols-2 gap-lg">
+          <div class="flex flex-col gap-base">
+            <span
+              class="font-label-sm text-label-sm font-bold uppercase mb-base"
+              >Ikuti Kami</span
+            >
+            <a
+              id="footer-instagram-link"
+              class="font-body-md text-body-md text-secondary"
+              href="#"
+              >Instagram</a
+            >
+            <a
+              id="footer-tiktok-link"
+              class="font-body-md text-body-md text-secondary"
+              href="#"
+              >TikTok</a
+            >
+            <a
+              id="footer-facebook-link"
+              class="font-body-md text-body-md text-secondary"
+              href="#"
+              >Facebook</a
+            >
+          </div>
+          <div class="flex flex-col gap-base">
+            <span
+              class="font-label-sm text-label-sm font-bold uppercase mb-base"
+              >Bantuan</span
+            >
+            <a
+              id="footer-location-link"
+              class="font-body-md text-body-md text-secondary"
+              href="#"
+              >Lokasi</a
+            >
+            <a
+              id="footer-whatsapp-link"
+              class="font-body-md text-body-md text-secondary"
+              href="https://wa.me/62825705500012"
+              >WhatsApp</a
+            >
+            <a
+              id="footer-email-link"
+              class="font-body-md text-body-md text-secondary"
+              href="mailto:merdekasneakers@gmail.com"
+              >Kontak</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="pt-lg border-t border-outline-variant flex flex-col gap-base">
+        <div class="flex gap-md">
+          <a class="font-label-sm text-label-sm text-secondary" href="#"
+            >Privacy Policy</a
+          >
+          <a class="font-label-sm text-label-sm text-secondary" href="#"
+            >Terms of Service</a
+          >
+        </div>
+        <p
+          id="footer-copyright-text"
+          class="font-label-sm text-label-sm text-secondary"
+        >
+          © 2024 MERDEKA SNEAKERS. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+      const SUPABASE_URL = "https://reknrtzkntcagwquoppw.supabase.co";
+      const SUPABASE_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJla25ydHprbnRjYWd3cXVvcHB3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2Mjg3MjUsImV4cCI6MjA5NTIwNDcyNX0.2xhOB-1HHODFN9XQrY8ljj17nFN7Nyn_n-LYMOZpYjc";
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      function formatRp(value) {
+        return new Intl.NumberFormat("id-ID", {
+          style: "currency",
+          currency: "IDR",
+          maximumFractionDigits: 0,
+        }).format(value);
+      }
+
+      async function renderProducts() {
+        const grid = document.getElementById("product-grid");
+        grid.innerHTML = ""; // Bersihkan grid sebelum memuat produk
+
+        try {
+          const { data: products, error } = await supabase
+            .from("products")
+            .select("*")
+            .order("created_at", { ascending: false })
+            .limit(4);
+
+          if (error) throw error;
+
+          if (!products || products.length === 0) {
+            grid.innerHTML = `
+              <div class="col-span-2 py-20 text-center">
+                <p class="text-secondary">Belum ada produk tersedia.</p>
+                <a href="admin/kelola-produk.html" class="text-primary font-bold underline mt-2 block">Tambah Produk di Admin</a>
+              </div>`;
+            return;
+          }
+
+          grid.innerHTML = products
+            .map(
+              (product) => `
+            <a href="detail-produk.html?id=${product.id}" class="group block rounded-3xl bg-surface overflow-hidden border border-outline-variant shadow-sm">
+              <div class="aspect-[3/4] bg-surface-container overflow-hidden relative">
+                <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="${product.image}" alt="${product.name}" />
+                ${product.is_new ? '<div class="absolute top-base left-base bg-primary text-on-primary px-sm py-xs font-label-sm text-label-sm">NEW</div>' : ""}
+              </div>
+              <div class="p-md">
+                <p class="font-label-sm text-label-sm text-secondary uppercase mb-xs">${product.category}</p>
+                <h3 class="font-body-md text-body-md font-semibold mb-base">${product.name}</h3>
+                <p class="font-label-sm text-label-sm font-bold">${formatRp(product.price)}</p>
+              </div>
+            </a>
+          `,
+            )
+            .join("");
+        } catch (error) {
+          console.error("Error fetching products: ", error);
+          grid.innerHTML =
+            "<p>Gagal memuat produk. Silakan coba lagi nanti.</p>";
+        }
+      }
+
+      async function loadSiteSettings() {
+        try {
+          const { data: settings, error } = await supabase
+            .from("site_settings")
+            .select("*");
+
+          if (error) return; // Lewati jika data belum ada
+
+          settings.forEach((item) => {
+            const c = item.content;
+            if (item.id === "homepage") {
+              if (c.title)
+                document.getElementById("hero-title").innerHTML =
+                  c.title.replace(/\n/g, "<br>") || "";
+              if (c.subtitle)
+                document.getElementById("hero-subtitle").textContent =
+                  c.subtitle || "";
+              if (c.images && c.images.length > 0) initHeroSlider(c.images);
+              if (c.cta)
+                document.getElementById("hero-cta").textContent = c.cta;
+              if (c.cta_url)
+                document.getElementById("hero-cta").href = c.cta_url;
+            }
+            if (item.id === "home_perf") {
+              if (c.image)
+                document.getElementById("cat-perf-img").src = c.image;
+              if (c.title)
+                document.getElementById("cat-perf-title").textContent = c.title;
+            }
+            if (item.id === "home_life") {
+              if (c.image)
+                document.getElementById("cat-life-img").src = c.image;
+              if (c.title)
+                document.getElementById("cat-life-title").textContent = c.title;
+            }
+            if (item.id === "home_collab") {
+              if (c.image)
+                document.getElementById("cat-collab-img").src = c.image;
+              if (c.title)
+                document.getElementById("cat-collab-title").textContent =
+                  c.title;
+            }
+            if (item.id === "home_journal") {
+              if (c.image) document.getElementById("journal-img").src = c.image;
+              if (c.title)
+                document.getElementById("journal-title").textContent = c.title;
+              if (c.subtitle)
+                document.getElementById("journal-subtitle").textContent =
+                  c.subtitle;
+            }
+            if (item.id === "footer") {
+              if (c.whatsapp) {
+                const cleanWA = c.whatsapp.replace(/\D/g, "");
+                document.getElementById("footer-whatsapp-link").href =
+                  `https://wa.me/${cleanWA}`;
+              }
+              if (c.instagram) {
+                const igUser = c.instagram.replace("@", "");
+                document.getElementById("footer-instagram-link").href =
+                  `https://instagram.com/${igUser}`;
+              }
+              if (c.tiktok) {
+                const tiktokUser = c.tiktok.replace("@", "");
+                document.getElementById("footer-tiktok-link").href =
+                  `https://www.tiktok.com/@${tiktokUser}`;
+              }
+              if (c.facebook) {
+                document.getElementById("footer-facebook-link").href =
+                  `https://facebook.com/${c.facebook}`;
+              }
+              if (c.email) {
+                document.getElementById("footer-email-link").href =
+                  `mailto:${c.email}`;
+              }
+              if (c.address) {
+                const locLink = document.getElementById("footer-location-link");
+                if (locLink) {
+                  locLink.href = c.address.startsWith("http")
+                    ? c.address
+                    : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(c.address)}`;
+                  locLink.target = "_blank";
+                }
+              }
+              if (c.copyright) {
+                document.getElementById("footer-copyright-text").textContent =
+                  c.copyright;
+              }
+            }
+          });
+        } catch (err) {
+          console.error("Gagal memuat pengaturan situs:", err);
+        }
+      }
+
+      // Hero Slider Logic
+      let currentSlide = 0;
+      let heroImages = [];
+      let slideInterval;
+
+      function initHeroSlider(images) {
+        heroImages = images;
+        const sliderContainer = document.getElementById("hero-slider");
+        const dotsContainer = document.getElementById("hero-slider-dots");
+
+        if (!sliderContainer || !dotsContainer || heroImages.length === 0)
+          return;
+
+        sliderContainer.innerHTML = ""; // Clear existing
+        dotsContainer.innerHTML = ""; // Clear existing
+
+        heroImages.forEach((imgSrc, index) => {
+          const img = document.createElement("img");
+          img.src = imgSrc;
+          img.alt = `Hero Image ${index + 1}`;
+          img.className =
+            "absolute inset-0 w-full h-full object-cover grayscale brightness-50 transition-opacity duration-1000 ease-in-out";
+          img.style.opacity = index === 0 ? 1 : 0; // Only first image visible initially
+          sliderContainer.appendChild(img);
+
+          const dot = document.createElement("span");
+          dot.className = `block w-2 h-2 rounded-full bg-on-primary/50 cursor-pointer transition-colors ${index === 0 ? "bg-on-primary" : ""}`;
+          dot.onclick = () => showSlide(index);
+          dotsContainer.appendChild(dot);
+        });
+
+        startSlider();
+      }
+
+      function showSlide(index) {
+        const images = document.querySelectorAll("#hero-slider img");
+        const dots = document.querySelectorAll("#hero-slider-dots span");
+        images.forEach((img, i) => (img.style.opacity = i === index ? 1 : 0));
+        dots.forEach((dot, i) =>
+          dot.classList.toggle("bg-on-primary", i === index),
+        );
+        currentSlide = index;
+      }
+
+      function startSlider() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(() => {
+          const nextSlide = (currentSlide + 1) % heroImages.length;
+          showSlide(nextSlide);
+        }, 5000); // Change image every 5 seconds
+      }
+
+      // Jalankan fungsi saat halaman dimuat
+      document.addEventListener("DOMContentLoaded", () => {
+        renderProducts();
+        loadSiteSettings();
+      });
+
+      // Ekspos ke global agar tombol menu bisa berfungsi
+      window.toggleSidebar = function () {
+        const sidebar = document.getElementById("sidebar");
+        sidebar.classList.toggle("-translate-x-full");
+      };
+
+      window.toggleSearch = function () {
+        const searchBar = document.getElementById("search-bar");
+        const searchTrigger = document.getElementById("search-trigger");
+        const searchInput = document.getElementById("search-input");
+
+        if (searchBar.classList.contains("hidden")) {
+          searchBar.classList.remove("hidden");
+          searchBar.classList.add("flex");
+          searchTrigger.classList.add("hidden");
+          searchInput.focus();
+        } else {
+          searchBar.classList.add("hidden");
+          searchBar.classList.remove("flex");
+          searchTrigger.classList.remove("hidden");
+          searchInput.value = "";
+        }
+      };
+
+      document
+        .getElementById("search-input")
+        .addEventListener("keypress", (e) => {
+          if (e.key === "Enter" && e.target.value.trim()) {
+            window.location.href = `katalog.html?search=${encodeURIComponent(e.target.value.trim())}`;
+          }
+        });
+
+      // Simple scroll behavior for header
+      let lastScroll = 0;
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+        const header = document.querySelector("header");
+        if (currentScroll > lastScroll && currentScroll > 100) {
+          header.style.transform = "translateY(-100%)";
+        } else {
+          header.style.transform = "translateY(0)";
+        }
+        header.style.transition = "transform 0.3s ease";
+        lastScroll = currentScroll;
+      });
+    </script>
+  </body>
+</html>

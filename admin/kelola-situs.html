@@ -1,0 +1,1377 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Situs - Merdeka Admin</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              surface: "#F7F6F4",
+              "surface-container": "#FFFFFF",
+              primary: "#111827",
+              secondary: "#6B7280",
+              outline: "#D1D5DB",
+              "outline-variant": "#E5E7EB",
+            },
+            fontFamily: {
+              sans: ["Inter", "system-ui", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-surface text-slate-900">
+    <header
+      class="sticky top-0 z-20 border-b border-outline-variant bg-white/95 backdrop-blur-xl"
+    >
+      <div
+        class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
+      >
+        <a
+          href="admin.html"
+          class="font-headline-md text-headline-md font-bold text-primary"
+          >MERDEKA ADMIN</a
+        >
+        <nav class="flex items-center gap-4 text-sm font-medium text-secondary">
+          <a
+            href="admin.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Dashboard</a
+          >
+          <a
+            href="kelola-produk.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Kelola Produk</a
+          >
+          <a
+            href="laporan-penjualan.html"
+            class="rounded-full border border-outline px-4 py-2 transition hover:bg-slate-100"
+            >Laporan Penjualan</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6 py-10">
+      <div class="rounded-[2rem] bg-white p-10 shadow-lg shadow-slate-200/50">
+        <div
+          class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between"
+        >
+          <div>
+            <span
+              class="inline-flex rounded-full bg-primary px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-white"
+              >Kelola Situs</span
+            >
+            <h1 class="mt-6 text-3xl font-bold text-slate-900">
+              Pengaturan Konten & Tampilan Situs
+            </h1>
+            <p class="mt-3 max-w-2xl text-body-md text-slate-600">
+              Kelola halaman utama, promosi, tampilan produk, dan informasi
+              kontak untuk situs Merdeka Sneakers.
+            </p>
+          </div>
+          <a
+            href="admin.html"
+            class="inline-flex items-center rounded-full border border-outline px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
+            >Kembali ke Dashboard</a
+          >
+        </div>
+
+        <div class="mt-10 grid gap-6 lg:grid-cols-2">
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h2 class="text-xl font-semibold text-slate-900">
+                  Konten Halaman Utama
+                </h2>
+                <p class="mt-3 text-sm text-slate-600">
+                  Atur hero, teks, tombol, dan gambar utama situs.
+                </p>
+              </div>
+              <span
+                class="rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white"
+                >Homepage</span
+              >
+            </div>
+            <form id="homepageForm" class="mt-6 space-y-4">
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Judul Hero</span
+                >
+                <input
+                  type="text"
+                  name="hero_title"
+                  placeholder="Contoh: Merdeka Sneakers"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Subjudul Hero</span
+                >
+                <textarea
+                  name="hero_subtitle"
+                  rows="3"
+                  placeholder="Contoh: Sepatu lokal berkualitas untuk gaya bebasmu."
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                ></textarea>
+              </label>
+              <div class="grid gap-4 lg:grid-cols-2">
+                <label class="block">
+                  <span class="text-sm font-semibold text-slate-700"
+                    >Teks Tombol CTA</span
+                  >
+                  <input
+                    type="text"
+                    name="hero_cta"
+                    placeholder="Contoh: Belanja Sekarang"
+                    class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                  />
+                </label>
+                <label class="block">
+                  <span class="text-sm font-semibold text-slate-700"
+                    >URL Tautan CTA</span
+                  >
+                  <input
+                    type="url"
+                    name="hero_cta_url"
+                    placeholder="Contoh: /katalog.html"
+                    class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                  />
+                </label>
+              </div>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Gambar Halaman Utama (Maks. 4)</span
+                >
+                <input
+                  type="file"
+                  name="hero_images"
+                  accept="image/*"
+                  multiple
+                  class="mt-2 w-full rounded-3xl border border-outline bg-white px-4 py-3 text-sm text-slate-900 focus:outline-none"
+                />
+              </label>
+              <button
+                type="submit"
+                class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Simpan Halaman Utama
+              </button>
+            </form>
+            <div
+              class="mt-6 rounded-[1.5rem] border border-outline bg-white p-4"
+            >
+              <p class="text-sm font-semibold text-slate-700">
+                Pratinjau Halaman Utama
+              </p>
+              <div class="mt-4 flex flex-col gap-4">
+                <div
+                  id="homepageImagePreviewContainer"
+                  class="flex flex-wrap gap-2"
+                >
+                  <img
+                    id="homepageImagePreview"
+                    src="https://via.placeholder.com/100x60?text=Hero+Image"
+                    alt="Pratinjau Gambar Halaman Utama"
+                    class="h-20 w-32 object-cover rounded-lg border border-outline"
+                  />
+                </div>
+                <div>
+                  <h3
+                    id="homepageTitlePreview"
+                    class="text-lg font-bold text-slate-900"
+                  >
+                    Judul Hero Saat Ini
+                  </h3>
+                  <p
+                    id="homepageSubtitlePreview"
+                    class="mt-2 text-sm text-slate-600"
+                  >
+                    Subjudul hero akan tampil di sini setelah disimpan.
+                  </p>
+                  <a
+                    id="homepageCtaPreview"
+                    href="#"
+                    class="mt-3 inline-flex rounded-full bg-primary px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
+                    >CTA Tombol</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h2 class="text-xl font-semibold text-slate-900">
+                  Halaman Tentang
+                </h2>
+                <p class="mt-3 text-sm text-slate-600">
+                  Perbarui misi brand, cerita perusahaan, dan gambar profil.
+                </p>
+              </div>
+              <span
+                class="rounded-full bg-secondary px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white"
+                >Tentang</span
+              >
+            </div>
+            <form id="aboutForm" class="mt-6 space-y-4">
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Judul Halaman</span
+                >
+                <input
+                  type="text"
+                  name="about_title"
+                  placeholder="Contoh: Cerita Merdeka"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Deskripsi Tentang</span
+                >
+                <textarea
+                  name="about_description"
+                  rows="4"
+                  placeholder="Contoh: Merdeka Sneakers hadir sebagai brand lokal..."
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                ></textarea>
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Gambar Tentang</span
+                >
+                <input
+                  type="file"
+                  name="about_image"
+                  accept="image/*"
+                  class="mt-2 w-full rounded-3xl border border-outline bg-white px-4 py-3 text-sm text-slate-900 focus:outline-none"
+                />
+              </label>
+              <button
+                type="submit"
+                class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Simpan Halaman Tentang
+              </button>
+            </form>
+            <div
+              class="mt-6 rounded-[1.5rem] border border-outline bg-white p-4"
+            >
+              <p class="text-sm font-semibold text-slate-700">
+                Pratinjau Halaman Tentang
+              </p>
+              <div class="mt-4 flex flex-col gap-4">
+                <img
+                  id="aboutImagePreview"
+                  src="https://via.placeholder.com/600x240?text=Tentang+Image"
+                  alt="Pratinjau Gambar Tentang"
+                  class="h-40 w-full rounded-3xl object-cover"
+                />
+                <div>
+                  <h3
+                    id="aboutTitlePreview"
+                    class="text-lg font-bold text-slate-900"
+                  >
+                    Judul Tentang Saat Ini
+                  </h3>
+                  <p
+                    id="aboutDescriptionPreview"
+                    class="mt-2 text-sm text-slate-600"
+                  >
+                    Deskripsi tentang akan tampil di sini setelah disimpan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h2 class="text-xl font-semibold text-slate-900">
+                  Panduan Ukuran
+                </h2>
+                <p class="mt-3 text-sm text-slate-600">
+                  Atur teks ukuran, tabel panduan, dan gambar referensi ukuran
+                  sepatu.
+                </p>
+              </div>
+              <span
+                class="rounded-full bg-amber-600 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white"
+                >Ukuran</span
+              >
+            </div>
+            <form id="sizeGuideForm" class="mt-6 space-y-4">
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Judul Panduan</span
+                >
+                <input
+                  type="text"
+                  name="size_title"
+                  placeholder="Contoh: Panduan Ukuran"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Konten Panduan</span
+                >
+                <textarea
+                  name="size_description"
+                  rows="4"
+                  placeholder="Contoh: Gunakan ukuran yang nyaman dengan menyesuaikan panjang kaki..."
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                ></textarea>
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Gambar Panduan Ukuran</span
+                >
+                <input
+                  type="file"
+                  name="size_image"
+                  accept="image/*"
+                  class="mt-2 w-full rounded-3xl border border-outline bg-white px-4 py-3 text-sm text-slate-900 focus:outline-none"
+                />
+              </label>
+              <button
+                type="submit"
+                class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Simpan Panduan Ukuran
+              </button>
+            </form>
+            <div
+              class="mt-6 rounded-[1.5rem] border border-outline bg-white p-4"
+            >
+              <p class="text-sm font-semibold text-slate-700">
+                Pratinjau Panduan Ukuran
+              </p>
+              <div class="mt-4 flex flex-col gap-4">
+                <img
+                  id="sizeGuideImagePreview"
+                  src="https://via.placeholder.com/600x240?text=Panduan+Ukuran"
+                  alt="Pratinjau Gambar Panduan Ukuran"
+                  class="h-40 w-full rounded-3xl object-cover"
+                />
+                <div>
+                  <h3
+                    id="sizeTitlePreview"
+                    class="text-lg font-bold text-slate-900"
+                  >
+                    Judul Panduan Saat Ini
+                  </h3>
+                  <p
+                    id="sizeDescriptionPreview"
+                    class="mt-2 text-sm text-slate-600"
+                  >
+                    Konten panduan ukuran akan tampil di sini setelah disimpan.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Banner Kategori Beranda -->
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container lg:col-span-2"
+          >
+            <h2 class="text-xl font-semibold text-slate-900 mb-6">
+              Banner Kategori Beranda
+            </h2>
+            <div class="grid gap-6 md:grid-cols-3">
+              <!-- Performance -->
+              <form
+                id="homePerfForm"
+                class="space-y-4 p-4 border border-outline rounded-3xl bg-white"
+              >
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-secondary"
+                  >Performance</span
+                >
+                <input
+                  type="file"
+                  name="cat_image"
+                  accept="image/*"
+                  class="w-full text-xs"
+                />
+                <input
+                  type="text"
+                  name="cat_title"
+                  placeholder="Judul (PERFORMANCE)"
+                  class="w-full rounded-xl border border-outline px-3 py-2 text-sm"
+                />
+                <img
+                  id="homePerfPreview"
+                  src="https://via.placeholder.com/300x150"
+                  class="h-24 w-full rounded-xl object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full rounded-full bg-primary py-2 text-xs font-bold text-white uppercase"
+                >
+                  Simpan
+                </button>
+              </form>
+              <!-- Lifestyle -->
+              <form
+                id="homeLifeForm"
+                class="space-y-4 p-4 border border-outline rounded-3xl bg-white"
+              >
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-secondary"
+                  >Lifestyle</span
+                >
+                <input
+                  type="file"
+                  name="cat_image"
+                  accept="image/*"
+                  class="w-full text-xs"
+                />
+                <input
+                  type="text"
+                  name="cat_title"
+                  placeholder="Judul (LIFESTYLE)"
+                  class="w-full rounded-xl border border-outline px-3 py-2 text-sm"
+                />
+                <img
+                  id="homeLifePreview"
+                  src="https://via.placeholder.com/300x150"
+                  class="h-24 w-full rounded-xl object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full rounded-full bg-primary py-2 text-xs font-bold text-white uppercase"
+                >
+                  Simpan
+                </button>
+              </form>
+              <!-- Collaboration -->
+              <form
+                id="homeCollabForm"
+                class="space-y-4 p-4 border border-outline rounded-3xl bg-white"
+              >
+                <span
+                  class="text-xs font-bold uppercase tracking-widest text-secondary"
+                  >Collaboration</span
+                >
+                <input
+                  type="file"
+                  name="cat_image"
+                  accept="image/*"
+                  class="w-full text-xs"
+                />
+                <input
+                  type="text"
+                  name="cat_title"
+                  placeholder="Judul (COLLABORATION)"
+                  class="w-full rounded-xl border border-outline px-3 py-2 text-sm"
+                />
+                <img
+                  id="homeCollabPreview"
+                  src="https://via.placeholder.com/300x150"
+                  class="h-24 w-full rounded-xl object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full rounded-full bg-primary py-2 text-xs font-bold text-white uppercase"
+                >
+                  Simpan
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Journal Section Beranda -->
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container lg:col-span-2"
+          >
+            <h2 class="text-xl font-semibold text-slate-900 mb-4">
+              Homepage Journal Section
+            </h2>
+            <form
+              id="homeJournalForm"
+              class="grid gap-6 md:grid-cols-2 bg-white p-6 border border-outline rounded-3xl"
+            >
+              <div class="space-y-4">
+                <label class="block">
+                  <span class="text-sm font-semibold">Gambar Journal</span>
+                  <input
+                    type="file"
+                    name="j_image"
+                    accept="image/*"
+                    class="mt-2 w-full text-sm"
+                  />
+                </label>
+                <input
+                  type="text"
+                  name="j_title"
+                  placeholder="Judul Journal"
+                  class="w-full rounded-xl border border-outline px-4 py-2 text-sm"
+                />
+                <textarea
+                  name="j_subtitle"
+                  placeholder="Deskripsi Singkat"
+                  class="w-full rounded-xl border border-outline px-4 py-2 text-sm"
+                  rows="2"
+                ></textarea>
+                <button
+                  type="submit"
+                  class="rounded-full bg-primary px-6 py-2 text-xs font-bold text-white uppercase"
+                >
+                  Simpan Journal
+                </button>
+              </div>
+              <img
+                id="homeJournalPreview"
+                src="https://via.placeholder.com/500x300"
+                class="h-full w-full rounded-2xl object-cover border border-outline"
+              />
+            </form>
+          </div>
+
+          <!-- Galeri Halaman Tentang -->
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container lg:col-span-2"
+          >
+            <h2 class="text-xl font-semibold text-slate-900 mb-6">
+              Galeri Ruang (Halaman Tentang)
+            </h2>
+            <div class="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+              <form
+                id="aboutSpace1Form"
+                class="space-y-3 p-3 border border-outline rounded-2xl bg-white"
+              >
+                <span class="text-[10px] font-bold text-secondary"
+                  >RUANG 1</span
+                >
+                <input
+                  type="file"
+                  name="s_image"
+                  accept="image/*"
+                  class="w-full text-[10px]"
+                />
+                <input
+                  type="text"
+                  name="s_label"
+                  placeholder="Label"
+                  class="w-full text-[10px] border border-outline rounded p-1"
+                />
+                <img
+                  id="aboutSpace1Preview"
+                  src="https://via.placeholder.com/150"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white text-[10px] py-1 rounded-full font-bold"
+                >
+                  SIMPAN
+                </button>
+              </form>
+              <form
+                id="aboutSpace2Form"
+                class="space-y-3 p-3 border border-outline rounded-2xl bg-white"
+              >
+                <span class="text-[10px] font-bold text-secondary"
+                  >RUANG 2</span
+                >
+                <input
+                  type="file"
+                  name="s_image"
+                  accept="image/*"
+                  class="w-full text-[10px]"
+                />
+                <input
+                  type="text"
+                  name="s_label"
+                  placeholder="Label"
+                  class="w-full text-[10px] border border-outline rounded p-1"
+                />
+                <img
+                  id="aboutSpace2Preview"
+                  src="https://via.placeholder.com/150"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white text-[10px] py-1 rounded-full font-bold"
+                >
+                  SIMPAN
+                </button>
+              </form>
+              <form
+                id="aboutSpace3Form"
+                class="space-y-3 p-3 border border-outline rounded-2xl bg-white"
+              >
+                <span class="text-[10px] font-bold text-secondary"
+                  >RUANG 3</span
+                >
+                <input
+                  type="file"
+                  name="s_image"
+                  accept="image/*"
+                  class="w-full text-[10px]"
+                />
+                <input
+                  type="text"
+                  name="s_label"
+                  placeholder="Label"
+                  class="w-full text-[10px] border border-outline rounded p-1"
+                />
+                <img
+                  id="aboutSpace3Preview"
+                  src="https://via.placeholder.com/150"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white text-[10px] py-1 rounded-full font-bold"
+                >
+                  SIMPAN
+                </button>
+              </form>
+              <form
+                id="aboutSpace4Form"
+                class="space-y-3 p-3 border border-outline rounded-2xl bg-white"
+              >
+                <span class="text-[10px] font-bold text-secondary"
+                  >RUANG 4</span
+                >
+                <input
+                  type="file"
+                  name="s_image"
+                  accept="image/*"
+                  class="w-full text-[10px]"
+                />
+                <input
+                  type="text"
+                  name="s_label"
+                  placeholder="Label"
+                  class="w-full text-[10px] border border-outline rounded p-1"
+                />
+                <img
+                  id="aboutSpace4Preview"
+                  src="https://via.placeholder.com/150"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white text-[10px] py-1 rounded-full font-bold"
+                >
+                  SIMPAN
+                </button>
+              </form>
+              <form
+                id="aboutSpace5Form"
+                class="space-y-3 p-3 border border-outline rounded-2xl bg-white"
+              >
+                <span class="text-[10px] font-bold text-secondary"
+                  >RUANG 5</span
+                >
+                <input
+                  type="file"
+                  name="s_image"
+                  accept="image/*"
+                  class="w-full text-[10px]"
+                />
+                <input
+                  type="text"
+                  name="s_label"
+                  placeholder="Label"
+                  class="w-full text-[10px] border border-outline rounded p-1"
+                />
+                <img
+                  id="aboutSpace5Preview"
+                  src="https://via.placeholder.com/150"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white text-[10px] py-1 rounded-full font-bold"
+                >
+                  SIMPAN
+                </button>
+              </form>
+              <form
+                id="aboutSpace6Form"
+                class="space-y-3 p-3 border border-outline rounded-2xl bg-white"
+              >
+                <span class="text-[10px] font-bold text-secondary"
+                  >RUANG 6</span
+                >
+                <input
+                  type="file"
+                  name="s_image"
+                  accept="image/*"
+                  class="w-full text-[10px]"
+                />
+                <input
+                  type="text"
+                  name="s_label"
+                  placeholder="Label"
+                  class="w-full text-[10px] border border-outline rounded p-1"
+                />
+                <img
+                  id="aboutSpace6Preview"
+                  src="https://via.placeholder.com/150"
+                  class="aspect-square w-full rounded-lg object-cover"
+                />
+                <button
+                  type="submit"
+                  class="w-full bg-primary text-white text-[10px] py-1 rounded-full font-bold"
+                >
+                  SIMPAN
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div
+            class="rounded-[2rem] border border-outline p-6 bg-surface-container"
+          >
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h2 class="text-xl font-semibold text-slate-900">
+                  Kontak & Footer
+                </h2>
+                <p class="mt-3 text-sm text-slate-600">
+                  Ubah kontak, alamat, sosial, dan teks footer untuk tampilan
+                  administrasi yang lebih mudah.
+                </p>
+              </div>
+              <span
+                class="rounded-full bg-sky-600 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white"
+                >Footer</span
+              >
+            </div>
+            <form id="footerForm" class="mt-6 space-y-4">
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Email Kontak</span
+                >
+                <input
+                  type="email"
+                  name="footer_email"
+                  placeholder="Contoh: halo@merdekasneakers.com"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >WhatsApp</span
+                >
+                <input
+                  type="tel"
+                  name="footer_whatsapp"
+                  placeholder="Contoh: +62 812 3456 7890"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700">TikTok</span>
+                <input
+                  type="text"
+                  name="footer_tiktok"
+                  placeholder="Contoh: @merdekasneakers"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700">Alamat</span>
+                <textarea
+                  name="footer_address"
+                  rows="3"
+                  placeholder="Contoh: Jl. Merdeka No. 10, Jakarta"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                ></textarea>
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Instagram</span
+                >
+                <input
+                  type="text"
+                  name="footer_instagram"
+                  placeholder="Contoh: @merdekasneakers"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Facebook</span
+                >
+                <input
+                  type="text"
+                  name="footer_facebook"
+                  placeholder="Contoh: merdekasneakers"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <label class="block">
+                <span class="text-sm font-semibold text-slate-700"
+                  >Hak Cipta Footer</span
+                >
+                <input
+                  type="text"
+                  name="footer_copyright"
+                  placeholder="Contoh: © 2026 Merdeka Sneakers"
+                  class="mt-2 w-full rounded-3xl border border-outline px-4 py-3 text-sm text-slate-900 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/10"
+                />
+              </label>
+              <button
+                type="submit"
+                class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Simpan Kontak Footer
+              </button>
+            </form>
+            <div
+              class="mt-6 rounded-[1.5rem] border border-outline bg-white p-4"
+            >
+              <p class="text-sm font-semibold text-slate-700">
+                Pratinjau Footer
+              </p>
+              <div class="mt-4 space-y-3 text-sm text-slate-600">
+                <p>
+                  <span class="font-semibold text-slate-900">Email:</span>
+                  <span id="footerEmailPreview">halo@merdekasneakers.com</span>
+                </p>
+                <p>
+                  <span class="font-semibold text-slate-900">WhatsApp:</span>
+                  <span id="footerWhatsappPreview">+62 812 3456 7890</span>
+                </p>
+                <p>
+                  <span class="font-semibold text-slate-900">TikTok:</span>
+                  <span id="footerTiktokPreview">@merdekasneakers</span>
+                </p>
+                <p>
+                  <span class="font-semibold text-slate-900">Facebook:</span>
+                  <span id="footerFacebookPreview">-</span>
+                </p>
+                <p>
+                  <span class="font-semibold text-slate-900">Alamat:</span>
+                  <span id="footerAddressPreview"
+                    >Jl. Merdeka No. 10, Jakarta</span
+                  >
+                </p>
+                <p>
+                  <span class="font-semibold text-slate-900">Instagram:</span>
+                  <span id="footerInstagramPreview">@merdekasneakers</span>
+                </p>
+                <p class="text-xs text-slate-500" id="footerCopyrightPreview">
+                  © 2026 Merdeka Sneakers
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-10 rounded-[2rem] border border-outline p-6 bg-white">
+          <h2 class="text-lg font-semibold text-slate-900">Status Perubahan</h2>
+          <div class="mt-4 space-y-3 text-sm text-slate-600">
+            <p>
+              Semua perubahan situs tercatat di dashboard admin statis. Gunakan
+              halaman ini sebagai pusat konfigurasi desain dan konten.
+            </p>
+            <p>
+              Untuk pengelolaan nyata, konten harus diperbarui pada file HTML di
+              folder proyek.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Auth guard - redirect jika belum login
+      if (localStorage.getItem("merdeka_admin_logged_in") !== "true") {
+        window.location.href = "admin.html";
+      }
+    </script>
+    <script type="module">
+      import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
+
+      const SUPABASE_URL = "https://reknrtzkntcagwquoppw.supabase.co";
+      const SUPABASE_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJla25ydHprbnRjYWd3cXVvcHB3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk2Mjg3MjUsImV4cCI6MjA5NTIwNDcyNX0.2xhOB-1HHODFN9XQrY8ljj17nFN7Nyn_n-LYMOZpYjc";
+      // Catatan: Pastikan RLS diaktifkan untuk tabel site_settings di Supabase Dashboard.
+      const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+      // State untuk menyimpan URL gambar lama
+      let currentSettingsContent = {}; // Store the whole content object
+      let currentImages = {};
+
+      // Fungsi kompresi gambar
+      async function compressImage(file) {
+        return new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          reader.onload = (event) => {
+            const img = new Image();
+            img.src = event.target.result;
+            img.onload = () => {
+              const canvas = document.createElement("canvas");
+              const MAX_WIDTH = 1200;
+              const scaleSize = MAX_WIDTH / img.width;
+              canvas.width = MAX_WIDTH;
+              canvas.height = img.height * scaleSize;
+              const ctx = canvas.getContext("2d");
+              ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+              canvas.toBlob((blob) => resolve(blob), "image/jpeg", 0.8);
+            };
+          };
+        });
+      }
+
+      // Fungsi untuk mengambil data yang sudah ada
+      async function loadSettings() {
+        const { data, error } = await supabase
+          .from("site_settings")
+          .select("*");
+        if (error) return console.error(error);
+
+        data.forEach((item) => {
+          currentSettingsContent[item.id] = item.content; // Simpan seluruh objek content
+          currentImages[item.id] =
+            item.id === "homepage"
+              ? item.content.images || []
+              : item.content.image || "";
+
+          if (item.id === "homepage") {
+            const f = document.getElementById("homepageForm");
+            f.hero_title.value = item.content.title || "";
+            f.hero_subtitle.value = item.content.subtitle || "";
+            f.hero_cta.value = item.content.cta || "";
+            f.hero_cta_url.value = item.content.cta_url || "";
+            document.getElementById("homepageTitlePreview").textContent =
+              item.content.title || "Judul Hero Saat Ini";
+            document.getElementById("homepageSubtitlePreview").textContent =
+              item.content.subtitle ||
+              "Subjudul hero akan tampil di sini setelah disimpan.";
+
+            const previewContainer = document.getElementById(
+              "homepageImagePreviewContainer",
+            );
+            previewContainer.innerHTML = ""; // Clear existing previews
+            if (item.content.images && item.content.images.length > 0) {
+              item.content.images.forEach((imgUrl) => {
+                const img = document.createElement("img");
+                img.src = imgUrl;
+                img.alt = "Pratinjau Gambar Halaman Utama";
+                img.className =
+                  "h-20 w-32 object-cover rounded-lg border border-outline";
+                previewContainer.appendChild(img);
+              });
+            } else {
+              previewContainer.innerHTML = `<img src="https://via.placeholder.com/100x60?text=No+Image" alt="No Image" class="h-20 w-32 object-cover rounded-lg border border-outline" />`;
+            }
+          }
+          if (item.id === "about") {
+            const f = document.getElementById("aboutForm");
+            f.about_title.value = item.content.title || "";
+            f.about_description.value = item.content.description || "";
+            document.getElementById("aboutTitlePreview").textContent =
+              item.content.title || "Judul Tentang Saat Ini";
+            document.getElementById("aboutDescriptionPreview").textContent =
+              item.content.description ||
+              "Deskripsi tentang akan tampil di sini setelah disimpan.";
+            document.getElementById("aboutImagePreview").src =
+              item.content.image ||
+              "https://via.placeholder.com/600x240?text=Tentang+Image";
+          }
+          if (item.id === "home_perf") {
+            document.getElementById("homePerfForm").cat_title.value =
+              item.content.title || "";
+            document.getElementById("homePerfPreview").src =
+              item.content.image || "https://via.placeholder.com/300x150";
+          }
+          if (item.id === "home_life") {
+            document.getElementById("homeLifeForm").cat_title.value =
+              item.content.title || "";
+            document.getElementById("homeLifePreview").src =
+              item.content.image || "https://via.placeholder.com/300x150";
+          }
+          if (item.id === "home_collab") {
+            document.getElementById("homeCollabForm").cat_title.value =
+              item.content.title || "";
+            document.getElementById("homeCollabPreview").src =
+              item.content.image || "https://via.placeholder.com/300x150";
+          }
+          if (item.id === "home_journal") {
+            const f = document.getElementById("homeJournalForm");
+            f.j_title.value = item.content.title || "";
+            f.j_subtitle.value = item.content.subtitle || "";
+            document.getElementById("homeJournalPreview").src =
+              item.content.image || "https://via.placeholder.com/500x300";
+          }
+          // Galeri Halaman Tentang
+          for (let i = 1; i <= 6; i++) {
+            if (item.id === `about_space_${i}`) {
+              const f = document.getElementById(`aboutSpace${i}Form`);
+              f.s_label.value = item.content.label || "";
+              document.getElementById(`aboutSpace${i}Preview`).src =
+                item.content.image || "https://via.placeholder.com/150";
+            }
+          }
+
+          if (item.id === "size_guide") {
+            const f = document.getElementById("sizeGuideForm");
+            f.size_title.value = item.content.title || "";
+            f.size_description.value = item.content.description || "";
+            document.getElementById("sizeTitlePreview").textContent =
+              item.content.title || "Judul Panduan Saat Ini";
+            document.getElementById("sizeDescriptionPreview").textContent =
+              item.content.description ||
+              "Konten panduan ukuran akan tampil di sini setelah disimpan.";
+            document.getElementById("sizeGuideImagePreview").src =
+              item.content.image ||
+              "https://via.placeholder.com/600x240?text=Panduan+Ukuran";
+          }
+          if (item.id === "footer") {
+            const f = document.getElementById("footerForm");
+            f.footer_email.value = item.content.email || "";
+            f.footer_whatsapp.value = item.content.whatsapp || "";
+            f.footer_address.value = item.content.address || "";
+            f.footer_instagram.value = item.content.instagram || "";
+            f.footer_tiktok.value = item.content.tiktok || "";
+            f.footer_facebook.value = item.content.facebook || "";
+            f.footer_copyright.value = item.content.copyright || "";
+            document.getElementById("footerEmailPreview").textContent =
+              item.content.email || "-";
+            document.getElementById("footerWhatsappPreview").textContent =
+              item.content.whatsapp || "-";
+            document.getElementById("footerAddressPreview").textContent =
+              item.content.address || "-";
+            document.getElementById("footerInstagramPreview").textContent =
+              item.content.instagram || "-";
+            document.getElementById("footerTiktokPreview").textContent =
+              item.content.tiktok || "-";
+            document.getElementById("footerFacebookPreview").textContent =
+              item.content.facebook || "-";
+            document.getElementById("footerCopyrightPreview").textContent =
+              item.content.copyright || "©";
+          }
+        });
+      }
+
+      async function saveSection(event, sectionId, imageInputName, previewId) {
+        event.preventDefault();
+        const form = event.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerText;
+
+        submitBtn.innerText = "Menyimpan...";
+        submitBtn.disabled = true;
+
+        try {
+          let imageUrl =
+            typeof currentImages[sectionId] === "string"
+              ? currentImages[sectionId]
+              : "";
+          let imageUrls = Array.isArray(currentImages[sectionId])
+            ? currentImages[sectionId]
+            : [];
+          const files =
+            imageInputName && form[imageInputName]
+              ? form[imageInputName].files
+              : [];
+
+          // 1. Upload Gambar Baru jika ada
+          if (files.length > 0) {
+            if (sectionId === "homepage") {
+              imageUrls = [];
+              for (const file of Array.from(files).slice(0, 4)) {
+                const compressedBlob = await compressImage(file);
+                const fileName = `hp_${Date.now()}_${Math.random().toString(36).substring(7)}.jpg`;
+                const { error: uploadError } = await supabase.storage
+                  .from("site-assets")
+                  .upload(fileName, compressedBlob, {
+                    contentType: "image/jpeg",
+                    upsert: true,
+                  });
+                if (uploadError) throw uploadError;
+                imageUrls.push(
+                  supabase.storage.from("site-assets").getPublicUrl(fileName)
+                    .data.publicUrl,
+                );
+              }
+            } else {
+              const compressedBlob = await compressImage(files[0]);
+              const fileName = `${sectionId}_${Date.now()}.jpg`;
+              const { error: uploadError } = await supabase.storage
+                .from("site-assets")
+                .upload(fileName, compressedBlob, {
+                  contentType: "image/jpeg",
+                  upsert: true,
+                });
+              if (uploadError) throw uploadError;
+              imageUrl = supabase.storage
+                .from("site-assets")
+                .getPublicUrl(fileName).data.publicUrl;
+            }
+          }
+
+          // 2. Siapkan data berdasarkan section
+          let content =
+            sectionId === "homepage"
+              ? { images: imageUrls }
+              : { image: imageUrl };
+          if (sectionId === "homepage") {
+            content = {
+              ...content,
+              title: form.hero_title.value,
+              subtitle: form.hero_subtitle.value,
+              cta: form.hero_cta.value,
+              cta_url: form.hero_cta_url.value,
+            };
+          } else if (sectionId === "about") {
+            content = {
+              ...content,
+              title: form.about_title.value,
+              description: form.about_description.value,
+            };
+          } else if (sectionId.startsWith("home_")) {
+            if (sectionId === "home_journal") {
+              content = {
+                ...content,
+                title: form.j_title.value,
+                subtitle: form.j_subtitle.value,
+              };
+            } else {
+              content = {
+                ...content,
+                title: form.cat_title.value,
+              };
+            }
+          } else if (sectionId.startsWith("about_space_")) {
+            content = {
+              ...content,
+              label: form.s_label.value,
+            };
+          } else if (sectionId === "size_guide") {
+            content = {
+              ...content,
+              title: form.size_title.value,
+              description: form.size_description.value,
+            };
+          } else if (sectionId === "footer") {
+            content = {
+              email: form.footer_email.value,
+              whatsapp: form.footer_whatsapp.value,
+              address: form.footer_address.value,
+              instagram: form.footer_instagram.value,
+              tiktok: form.footer_tiktok.value,
+              facebook: form.footer_facebook.value,
+              copyright: form.footer_copyright.value,
+            };
+          }
+
+          // 3. Upsert ke Database
+          const { error: dbError } = await supabase
+            .from("site_settings")
+            .upsert({ id: sectionId, content: content });
+
+          if (dbError) throw dbError;
+
+          // Update State & Preview
+          if (sectionId === "homepage") {
+            currentImages[sectionId] = imageUrls;
+            const container = document.getElementById(previewId);
+            container.innerHTML = imageUrls
+              .map(
+                (url) =>
+                  `<img src="${url}" class="h-20 w-32 object-cover rounded-lg border border-outline" />`,
+              )
+              .join("");
+          } else if (imageUrl && previewId) {
+            currentImages[sectionId] = imageUrl;
+            const previewEl = document.getElementById(previewId);
+            if (previewEl) previewEl.src = imageUrl;
+          }
+
+          // Refresh local state
+          currentSettingsContent[sectionId] = content;
+          alert(`Perubahan ${sectionId} berhasil disimpan!`);
+        } catch (err) {
+          console.error(err);
+          alert("Gagal menyimpan: " + err.message);
+        } finally {
+          submitBtn.innerText = originalText;
+          submitBtn.disabled = false;
+        }
+      }
+
+      // Event Listeners
+      document
+        .getElementById("homepageForm")
+        .addEventListener("submit", (e) =>
+          saveSection(
+            e,
+            "homepage",
+            "hero_images",
+            "homepageImagePreviewContainer",
+          ),
+        );
+      document
+        .getElementById("aboutForm")
+        .addEventListener("submit", (e) =>
+          saveSection(e, "about", "about_image", "aboutImagePreview"),
+        );
+      document
+        .getElementById("sizeGuideForm")
+        .addEventListener("submit", (e) =>
+          saveSection(e, "size_guide", "size_image", "sizeGuideImagePreview"),
+        );
+      document
+        .getElementById("homePerfForm")
+        .addEventListener("submit", (e) =>
+          saveSection(e, "home_perf", "cat_image", "homePerfPreview"),
+        );
+      document
+        .getElementById("homeLifeForm")
+        .addEventListener("submit", (e) =>
+          saveSection(e, "home_life", "cat_image", "homeLifePreview"),
+        );
+      document
+        .getElementById("homeCollabForm")
+        .addEventListener("submit", (e) =>
+          saveSection(e, "home_collab", "cat_image", "homeCollabPreview"),
+        );
+      document
+        .getElementById("homeJournalForm")
+        .addEventListener("submit", (e) =>
+          saveSection(e, "home_journal", "j_image", "homeJournalPreview"),
+        );
+
+      // Listeners Galeri
+      for (let i = 1; i <= 6; i++) {
+        document
+          .getElementById(`aboutSpace${i}Form`)
+          .addEventListener("submit", (e) => {
+            saveSection(
+              e,
+              `about_space_${i}`,
+              "s_image",
+              `aboutSpace${i}Preview`,
+            );
+          });
+      }
+
+      document
+        .getElementById("footerForm")
+        .addEventListener("submit", (e) =>
+          saveSection(e, "footer", null, null),
+        );
+
+      // --- Preview Instan sebelum upload ---
+
+      // Homepage multiple images preview
+      document
+        .querySelector('input[name="hero_images"]')
+        .addEventListener("change", function () {
+          const previewContainer = document.getElementById(
+            "homepageImagePreviewContainer",
+          );
+          previewContainer.innerHTML = ""; // Clear existing previews
+          if (this.files.length > 0) {
+            Array.from(this.files)
+              .slice(0, 4)
+              .forEach((file) => {
+                const img = document.createElement("img");
+                img.src = URL.createObjectURL(file);
+                img.alt = "Pratinjau Gambar Halaman Utama";
+                img.className =
+                  "h-20 w-32 object-cover rounded-lg border border-outline";
+                previewContainer.appendChild(img);
+              });
+          } else {
+            // If no files selected, show placeholder or existing images
+            const existingImages =
+              currentSettingsContent.homepage?.images || [];
+            if (existingImages.length > 0) {
+              existingImages.forEach((url) => {
+                const img = document.createElement("img");
+                img.src = url;
+                img.alt = "Pratinjau Gambar Halaman Utama";
+                img.className =
+                  "h-20 w-32 object-cover rounded-lg border border-outline";
+                previewContainer.appendChild(img);
+              });
+            } else {
+              previewContainer.innerHTML = `<img src="https://via.placeholder.com/100x60?text=No+Image" alt="No Image" class="h-20 w-32 object-cover rounded-lg border border-outline" />`;
+            }
+          }
+        });
+
+      // Generic single image preview for other forms
+      const singleImageForms = [
+        {
+          formId: "aboutForm",
+          inputName: "about_image",
+          previewId: "aboutImagePreview",
+        },
+        {
+          formId: "sizeGuideForm",
+          inputName: "size_image",
+          previewId: "sizeGuideImagePreview",
+        },
+        {
+          formId: "homePerfForm",
+          inputName: "cat_image",
+          previewId: "homePerfPreview",
+        },
+        {
+          formId: "homeLifeForm",
+          inputName: "cat_image",
+          previewId: "homeLifePreview",
+        },
+        {
+          formId: "homeCollabForm",
+          inputName: "cat_image",
+          previewId: "homeCollabPreview",
+        },
+        {
+          formId: "homeJournalForm",
+          inputName: "j_image",
+          previewId: "homeJournalPreview",
+        },
+        // Add aboutSpace forms here if they have a single file input
+        ...Array.from({ length: 6 }, (_, i) => ({
+          formId: `aboutSpace${i + 1}Form`,
+          inputName: "s_image",
+          previewId: `aboutSpace${i + 1}Preview`,
+        })),
+      ];
+
+      singleImageForms.forEach(({ formId, inputName, previewId }) => {
+        const input = document.querySelector(
+          `#${formId} input[name="${inputName}"]`,
+        );
+        if (input) {
+          input.addEventListener("change", function () {
+            if (this.files[0]) {
+              document.getElementById(previewId).src = URL.createObjectURL(
+                this.files[0],
+              );
+            }
+          });
+        }
+      });
+
+      loadSettings();
+    </script>
+  </body>
+</html>
