@@ -254,7 +254,7 @@
     </div>
     <main class="pt-16">
       <!-- Hero Section -->
-      <section class="relative h-[85vh] w-full overflow-hidden flex items-end">
+      <section class="relative min-h-[60vh] sm:h-[85vh] w-full overflow-hidden flex items-end">
         <div class="absolute inset-0 z-0">
           <div id="hero-slider" class="w-full h-full relative">
             <!-- Images will be dynamically loaded here -->
@@ -267,7 +267,7 @@
           </div>
         </div>
         <div
-          class="relative z-10 p-margin-mobile w-full bg-gradient-to-t from-primary/80 to-transparent"
+          class="relative z-10 p-margin-mobile w-full max-w-[720px] bg-gradient-to-t from-primary/80 to-transparent"
         >
           <h1
             id="hero-title"
@@ -277,7 +277,7 @@
           </h1>
           <p
             id="hero-subtitle"
-            class="font-body-md text-body-md text-on-primary/80 mb-lg max-w-[80%]"
+            class="font-body-md text-body-md text-on-primary/80 mb-lg max-w-full sm:max-w-[80%]"
           >
             Presisi arsitektural dalam setiap jahitan. Koleksi eksklusif kurasi
             artisan.
@@ -285,7 +285,7 @@
           <a
             id="hero-cta"
             href="katalog.html"
-            class="inline-flex w-full items-center justify-center bg-surface text-primary py-md font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all active:scale-95"
+            class="inline-flex w-full sm:w-auto items-center justify-center bg-surface text-primary py-md font-label-sm text-label-sm uppercase tracking-[0.2em] transition-all active:scale-95"
           >
             LIHAT KATALOG
           </a>
@@ -307,7 +307,7 @@
         </div>
         <div
           id="product-grid"
-          class="grid grid-cols-2 gap-[1px] bg-outline-variant border-y border-outline-variant"
+          class="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-outline-variant border-y border-outline-variant"
         >
           <!-- Produk akan dimuat secara dinamis via JavaScript -->
         </div>
@@ -317,7 +317,7 @@
         <!-- PERFORMANCE -->
         <div
           id="cat-perf-container"
-          class="relative h-64 w-full border-b border-outline-variant overflow-hidden group"
+          class="relative h-56 sm:h-64 w-full border-b border-outline-variant overflow-hidden group"
         >
           <img
             id="cat-perf-img"
@@ -344,7 +344,7 @@
         <!-- LIFESTYLE -->
         <div
           id="cat-life-container"
-          class="relative h-64 w-full border-b border-outline-variant overflow-hidden group"
+          class="relative h-56 sm:h-64 w-full border-b border-outline-variant overflow-hidden group"
         >
           <img
             id="cat-life-img"
@@ -371,7 +371,7 @@
         <!-- LIMITED VAULT -->
         <div
           id="cat-collab-container"
-          class="relative h-64 w-full overflow-hidden group"
+          class="relative h-56 sm:h-64 w-full overflow-hidden group"
         >
           <img
             id="cat-collab-img"
@@ -452,7 +452,7 @@
         >
           MERDEKA SNEAKERS
         </div>
-        <div class="grid grid-cols-2 gap-lg">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-lg">
           <div class="flex flex-col gap-base">
             <span
               class="font-label-sm text-label-sm font-bold uppercase mb-base"
