@@ -880,11 +880,23 @@
                 );
               }
 
-              const { data: urlData } = supabase.storage
+              const publicPath = uploadData?.path || fileName;
+              const { data: urlData, error: urlError } = supabase.storage
                 .from("products")
-                .getPublicUrl(fileName);
+                .getPublicUrl(publicPath);
 
-              if (urlData) imageUrls.push(urlData.publicUrl);
+              if (urlError) {
+                console.error("URL Error:", urlError);
+                throw new Error(
+                  `Gagal membuat URL publik untuk ${file.name}: ${urlError.message || urlError}`,
+                );
+              }
+
+              if (!urlData?.publicUrl) {
+                throw new Error(`URL publik tidak tersedia untuk ${file.name}`);
+              }
+
+              imageUrls.push(urlData.publicUrl);
             }
           }
 
